@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Dancing+Script&family=Lobster&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+.align-item-center {
+    display: flex;
+    align-items: center;
+}
+.active {
+    &::before {
+        content: '';
+        position: absolute !important;
+        background: #95c461 !important;
+        width: 100% !important;
+        height: 3px !important;
+        bottom: 0px !important;
+        left: 0 !important;
+    }
+}
+.navBarContainer {
+    width: 100%;
+    height: 3.5rem;
+    transition: 0.3s ease;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+
+    .navBarDesktopContainer {
+        height: 5rem;
+        padding: 1.5rem 2rem;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .logoBox {
+            .logo {
+                font-size: 2em;
+                font-weight: 700;
+
+                font-family: 'Dancing Script', cursive;
+                width: 2rem;
+            }
+        }
+
+        .navBarDesktop {
+            display: flex;
+            justify-content: flex-end;
+            min-width: 41rem;
+            height: 60px;
+            align-items: center;
+            .navBarBox {
+                width: auto;
+                display: flex;
+                align-items: center;
+
+                .changeLanguages {
+                    height: 30px;
+                    margin: 0 10px;
+                }
+                .logout {
+                    cursor: pointer;
+                }
+                .user {
+                    div {
+                        display: flex !important;
+                        flex-basis: auto;
+                        align-items: center;
+
+                        img {
+                            height: 1.8rem;
+                            width: 1.8rem;
+                            border-radius: 2rem;
+                            display: block;
+                            margin-right: 0.3rem;
+                        }
+                        p {
+                            display: flex;
+                            align-items: center;
+                        }
+                    }
+                }
+                .searchBox {
+                    transition: 0.3s ease;
+                    .searchIcon {
+                        cursor: pointer;
+                    }
+                    .searchContent {
+                        display: flex;
+                        align-items: center;
+                        flex-direction: row;
+                        margin-top: 8px !important;
+                    }
+                }
+                .navItem {
+                    text-align: center;
+                    padding: 0 10px;
+                    display: flex;
+                    justify-content: center;
+                    position: relative;
+                    font-size: 1.2em;
+
+                    div {
+                        cursor: pointer;
+
+                        display: block;
+                        position: relative;
+                        width: auto;
+                        transition: 0.3s ease;
+                        padding: 0 5px;
+                    }
+                    a {
+                        color: #2b3c88;
+                        font-weight: 500;
+                    }
+                    a::before {
+                        content: '';
+                        position: absolute;
+                        background: #95c461;
+                        width: 0%;
+                        height: 3px;
+                        bottom: 0px;
+                        transition: 0.3s ease;
+                        left: 0;
+                        font-size: 1.5em;
+                    }
+                    a:hover::before {
+                        width: 100%;
+                    }
+                    a:hover {
+                        color: #95c461;
+                    }
+                }
+            }
+        }
+    }
+    .navBarBoxMobile {
+        align-items: center;
+        width: 100%;
+        height: 60px;
+        display: none;
+        .css-grgdff {
+            width: 100%;
+        }
+        .navbarMobile {
+            margin: 0 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .logo {
+                font-size: 2em;
+                font-weight: 700;
+                margin-left: 7rem;
+                font-family: 'Dancing Script', cursive;
+                width: 2rem;
+            }
+            .feature {
+                display: flex;
+                align-items: center;
+                .changeLanguages {
+                    height: 25px;
+                    margin: 0 10px;
+                }
+            }
+        }
+    }
+}
+.stikcy {
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3rem;
+    transition: 0.3s;
+}
+.subNavWrap {
+    .subNavBarMobile {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 60px;
+        padding: 0 1em;
+
+        .subNavFeature {
+            display: flex;
+            align-items: center;
+            .searchBox {
+                transition: 0.3s ease;
+                .searchIcon {
+                    cursor: pointer;
+                }
+                .searchContent {
+                    display: flex;
+                    align-items: center;
+                    flex-direction: row;
+                    margin-top: 8px !important;
+                }
+            }
+            .changeLanguages {
+                height: 25px;
+                margin: 0 10px;
+            }
+        }
+    }
+    .subNavItemContainer {
+        padding: 0 1em;
+        .subNavItem {
+            height: 2rem;
+            a {
+                color: #a7a7a7;
+                font-size: 24px;
+            }
+        }
+    }
+}
+
+.css-1hlr77q {
+    display: flex !important;
+    align-items: center !important;
+    .css-zw4yqo {
+        padding: 8px !important;
+    }
+    input {
+        padding: 10px !important;
+    }
+}
+@media (max-width: 780px) {
+    .navBarDesktopContainer {
+        display: none !important;
+    }
+    .navBarBoxMobile {
+        display: flex !important;
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "content": {
+        "functional": "Functional",
+        "class": "Class",
+        "text": "This is text"
+    },
+    "navBar": {
+        "home": "Home",
+        "product": "Product",
+        "blog": "Blog",
+        "login": "Login",
+        "logout": "Logout",
+        "ForgotPassword": "Forgot password"
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "content": {
+        "functional": "Hàm",
+        "class": "Lớp",
+        "text": "Đây là văn bản"
+    },
+    "navBar": {
+        "home": "Trang chủ",
+        "product": "Sản phẩm",
+        "blog": "Blog",
+        "login": "Đăng nhập",
+        "logout": "Đăng xuất",
+        "ForgotPassword": "Quên mật khẩu"
+    }
+}

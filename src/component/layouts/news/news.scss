@@ -1,0 +1,17 @@
+.title {
+    margin-bottom: 1rem;
+    color: #4f4f4f;
+    font-size: 20px;
+    font-weight: 700;
+}
+.titleTextPort {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 65px;
+    width: 100%;
+}
+@media (max-width: 899px) {
+    .img-post {
+        height: 300px !important;
+    }
+}

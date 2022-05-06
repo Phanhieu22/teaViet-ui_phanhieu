@@ -1,0 +1,98 @@
+$height: calc(100vh - 3.5rem);
+
+.backgroundForm {
+    background-image: url('../../../../assets/pexels-marc-mueller-380768.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: $height;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form {
+    background-color: #fff;
+    width: 30em;
+    min-height: 31em;
+    border-radius: 20px;
+    text-align: center;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.headerForm {
+    position: relative;
+    height: 3rem;
+    h2 {
+        top: 55%;
+        right: 38%;
+
+        position: absolute;
+    }
+}
+.validateForm {
+    margin: 1rem 1rem 0rem 1rem;
+    .boxField {
+        margin: 0.5rem;
+        .textField {
+            width: 90%;
+            margin: 0 auto;
+        }
+    }
+}
+.text-transform-none {
+    text-transform: none !important;
+}
+.d-flex {
+    display: flex;
+    flex-basis: auto;
+    align-items: center;
+}
+.d-block {
+    display: block;
+}
+.controlsAction {
+    margin: auto;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+.rememberAccount {
+    margin-left: 2rem;
+}
+.submit {
+    width: 80%;
+    margin: 0.5rem 0 !important;
+    background-color: #3a98b4;
+}
+.errorMessage {
+    text-align: left;
+    margin-left: 4rem;
+    color: red;
+}
+.css-1wc848c-MuiFormHelperText-root {
+    color: red !important;
+    font-size: 14px !important;
+    margin-left: 5px !important;
+}
+.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
+    padding: 14px !important;
+}
+.containerIcon {
+    display: flex;
+    justify-content: center;
+    .icon {
+        margin: 5px 10px;
+        img {
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            border-radius: 25px;
+        }
+    }
+}
+.toRegister {
+    line-height: 2.5em;
+}
