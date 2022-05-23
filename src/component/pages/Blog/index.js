@@ -10,7 +10,7 @@ function Blog(props) {
     }, []);
     return (
         <>
-            <h1>phan duc hieu</h1>
+            <h1>blog page</h1>
         </>
     );
 }

@@ -3,9 +3,9 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Checkbox from '@mui/material/Checkbox';
 import { FastField, Form, Formik } from 'formik';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import * as Yup from 'yup';
 import iconFacebook from '../../../../assets/iconFacebook.jpg';
@@ -16,15 +16,9 @@ import InputField from '../../../InputField';
 import './login.scss';
 
 function Login() {
-    const [user, setUser] = useState({
-        userName: '',
-        password: '',
-    });
-
     const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
     const initialValue = { userName: '', password: '' };
-    let location = useLocation();
     const dispatch = useDispatch();
 
     return (
@@ -36,12 +30,10 @@ function Login() {
                     password: Yup.string().required('password is required'),
                 })}
                 onSubmit={(value, { resetForm }) => {
-                    console.log('submit');
                     dispatch(loginUser.loginUserRequest(value));
                     resetForm({});
                 }}>
                 {(formikProps) => {
-                    const { values, errors, touched } = formikProps;
                     // console.log({ values, errors, touched });
                     return (
                         <div className="backgroundForm">
@@ -67,12 +59,12 @@ function Login() {
                                     />
                                     <Box>
                                         <Grid className="controlsAction" container>
-                                            <Grid item xs="6">
+                                            <Grid item xs={6}>
                                                 <Button className="text-transform-none" component="a">
                                                     Forgot password
                                                 </Button>
                                             </Grid>{' '}
-                                            <Grid item xs="6">
+                                            <Grid item xs={6}>
                                                 <Box className="d-flex rememberAccount">
                                                     <Checkbox {...label} defaultChecked />
                                                     <h4 className="d-block">remember me</h4>
@@ -110,7 +102,6 @@ function Login() {
                                     </Box>
                                 </Box>
                             </Box>
-                            <ToastContainer autoClose={2000} />
                         </div>
                     );
                 }}

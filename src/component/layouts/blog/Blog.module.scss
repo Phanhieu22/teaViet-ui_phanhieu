@@ -1,0 +1,12 @@
+.wrapper {
+    .container {
+        display: flex;
+        width: 80%;
+        margin: 0 auto;
+        .content {
+            min-height: 1200px;
+            background-color: rgb(187, 204, 154);
+            flex-grow: 2;
+        }
+    }
+}

@@ -2,7 +2,7 @@ import React from 'react';
 
 import './product.scss';
 const Product = () => {
-    return <div>phanhieu product</div>;
+    return <div>product page</div>;
 };
 
 export default Product;

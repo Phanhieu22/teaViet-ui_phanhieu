@@ -12,8 +12,6 @@ import iconGoogle from '../../../../assets/iconGoogle.png';
 import iconTwitter from '../../../../assets/iconTwitter.png';
 import { createUser } from '../../../../redux/auth/action';
 import InputField from '../../../InputField';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import './register.scss';
 
 function Register() {
@@ -120,7 +118,6 @@ function Register() {
                                     </Box>
                                 </Box>
                             </Box>
-                            <ToastContainer autoClose={2000} />
                         </div>
                     );
                 }}

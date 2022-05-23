@@ -1,13 +1,12 @@
-import React from 'react';
-import './news.scss';
+import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
+import React from 'react';
+import './news.scss';
 
 function News({ newsData, name }) {
     return (
@@ -17,7 +16,7 @@ function News({ newsData, name }) {
             <Grid container spacing={1}>
                 {newsData.map(({ img, title, id }, index) => {
                     return (
-                        <Grid key={id} item xs="12" md={index == 0 ? 12 : 6}>
+                        <Grid key={id} item xs={12} md={index === 0 ? 12 : 6}>
                             <Card>
                                 <CardMedia
                                     component="img"
@@ -29,7 +28,7 @@ function News({ newsData, name }) {
                                 />
                                 <CardContent>
                                     <Typography className="titleTextPort" gutterBottom variant="h5" component="div">
-                                         {title}
+                                        {title}
                                     </Typography>
                                 </CardContent>
                                 <CardActions>

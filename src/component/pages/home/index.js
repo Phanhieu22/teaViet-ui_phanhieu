@@ -14,7 +14,7 @@ import 'swiper/css/thumbs';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import banner2 from '../../../assets/banner2.jpg';
 import banner3 from '../../../assets/banner3.jpg';
-import News from '../../layouts/news/News';
+import News from '../../layouts/component/news/News';
 import './home.scss';
 
 export default function Home() {
@@ -97,10 +97,10 @@ export default function Home() {
             <div className="news">
                 <Container maxWidth="lg">
                     <Grid container spacing={2}>
-                        <Grid item xs="12" md={6}>
+                        <Grid item xs={12} md={6}>
                             <News newsData={data} name="Tin tức-sự kiện" />
                         </Grid>
-                        <Grid item xs="12" md={6}>
+                        <Grid item xs={12} md={6}>
                             <News newsData={data} name="Bài viết nổi bật" />
                         </Grid>
                     </Grid>
