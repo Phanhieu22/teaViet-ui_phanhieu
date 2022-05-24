@@ -3,10 +3,7 @@ import classNames from 'classnames/bind';
 
 const cx = classNames.bind(styles);
 function Action() {
-    return <div className={cx('wrapper')}>
-
-        
-    </div>;
+    return <div className={cx('wrapper')}>action</div>;
 }
 
 export default Action;
