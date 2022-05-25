@@ -17,6 +17,7 @@ const Button = forwardRef(
             disabled,
             onClick,
             rounded,
+            icon,
             text,
             leftIcon,
             rightIcon,
@@ -58,6 +59,7 @@ const Button = forwardRef(
                     small,
                     large,
                     text,
+                    icon,
                     disabled,
                     rounded,
                 })}

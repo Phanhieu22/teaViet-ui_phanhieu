@@ -1,6 +1,6 @@
 .search,
 .searchResult {
-    width: 261px;
+    width: 253px;
 }
 .searchResult {
     font-size: 16px;
@@ -77,7 +77,7 @@
         color: rgba(22, 24, 35, 0.34);
     }
     .loading {
-        animation: spinner .7s linear infinite;
+        animation: spinner 0.7s linear infinite;
     }
     &:focus-within {
         border-color: rgba(22, 24, 35, 0.2);

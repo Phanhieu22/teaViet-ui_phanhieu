@@ -1,11 +1,14 @@
+import { faCartPlus, faEarthAsia, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import classNames from 'classnames/bind';
+import { FlagEngland, FlagVietNam } from '~/component/icons';
+import BlogLayout from '~/component/layouts/blog';
 import Login from '../component/pages/auth/Login';
 import Register from '../component/pages/auth/Register';
 import Blog from '../component/pages/Blog';
 import Home from '../component/pages/home';
 import Product from '../component/pages/product';
 import Profile from '../component/pages/Profile';
-import BlogLayout from '~/component/layouts/blog';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const configNavBar = [
     {
         icon: null,
@@ -91,6 +94,69 @@ const configNavBar = [
     },
 ];
 
+const configFeatureAccount = {
+    avatar: <FontAwesomeIcon icon={faUserPlus} />,
+    children: {
+        title: 'product',
+        data: [
+            {
+                id: '1',
+                to: '/account',
+                title: 'Tài khoản',
+            },
+            {
+                id: '2',
+                to: '/login',
+                title: 'Đăng nhập',
+            },
+        ],
+    },
+};
+const configCart = {
+    icon: <FontAwesomeIcon icon={faCartPlus} />,
+    children: {
+        title: 'product',
+        data: [
+            {
+                id: '1',
+                to: '/item',
+                nameItem: 'Bột trà Houjicha Special 500g',
+                image: 'https://product.hstatic.net/200000354189/product/houjicha_genmai_tea_powder_8ebf5280b5a6428da030e02b7fbf171d_1024x1024.jpg',
+                price: 300.0,
+                quantity: 1,
+            },
+            {
+                id: '2',
+                to: '/item',
+                nameItem: 'Trà túi lọc Houjicha Genmai 250g',
+                image: 'https://product.hstatic.net/200000354189/product/houjicha_genmai_31f0fa5e9a734f60a4be7bdd5c9946f9_1024x1024.png',
+                price: 400.0,
+                quantity: 1,
+            },
+        ],
+    },
+};
+const configLanguage = {
+    icon: <FontAwesomeIcon icon={faEarthAsia} />,
+    children: {
+        title: 'language',
+        data: [
+            {
+                icon: <FlagVietNam />,
+                id: '1',
+                code: 'vn',
+                title: 'Tiếng Việt',
+            },
+            {
+                icon: <FlagEngland />,
+                id: '2',
+                code: 'en',
+                title: 'English',
+            },
+        ],
+    },
+};
+
 const publicRoute = [
     { path: '/', component: Home },
     { path: '/product', component: Product },
@@ -113,4 +179,4 @@ const publicRoute = [
     },
 ];
 const privateRoute = [];
-export { configNavBar, publicRoute, privateRoute };
+export { configNavBar, configFeatureAccount, configCart, configLanguage, publicRoute, privateRoute };
