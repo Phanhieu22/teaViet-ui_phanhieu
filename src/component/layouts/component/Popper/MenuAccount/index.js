@@ -3,15 +3,15 @@ import classnames from 'classnames/bind';
 import { useState } from 'react';
 import Button from '~/component/Button';
 import { Wrapper as WrapperPopper } from '~/component/layouts/component/Popper';
-import styles from './Menu.module.scss';
+import styles from './MenuAccount.module.scss';
 import MenuItem from './MenuItems';
 import { forwardRef } from 'react';
 const cx = classnames.bind(styles);
-const Menu = forwardRef(({ children, items, onChange }, ref) => {
+const MenuAccount = forwardRef(({ children, items, onChange }, ref) => {
     let isParent = !!items.children;
     const renderItems = () => {
         if (isParent === true) {
-            return items.children.data.map((navItem, index) => <MenuItem key={index} data={navItem} />);
+            return items.children.data.map((navItem) => <MenuItem key={navItem.id} data={navItem} />);
         }
     };
 
@@ -20,18 +20,18 @@ const Menu = forwardRef(({ children, items, onChange }, ref) => {
             <Tippy
                 interactive
                 offset={[12, 8]}
-                placement="bottom-start"
+                placement="bottom-end"
                 render={(attrs) => (
                     <div className="box" tabIndex="-1" {...attrs}>
                         <WrapperPopper className={cx('customWrapper')}>
-                            <div className={cx('memuItems')}>{renderItems()}</div>
+                            <div className={cx('menuItems')}>{renderItems()}</div>
                         </WrapperPopper>
                     </div>
                 )}>
-                <Button>{children}</Button>
+                <Button icon>{children}</Button>
             </Tippy>
         </div>
     );
 });
 
-export default Menu;
+export default MenuAccount;

@@ -2,7 +2,7 @@ import classNames from 'classnames/bind';
 import MenuListItem from '~/component/layouts/component/Popper/menuItemCart/MenuListItem';
 import MenuListItemLanguage from '~/component/layouts/component/Popper/menuListItemLanguage';
 import { configCart, configFeatureAccount, configLanguage } from '~/router';
-import MenuSearch from '../Popper/MenuSearch';
+import MenuSearch from '../Popper/MenuAccount';
 import styles from './Action.module.scss';
 const cx = classNames.bind(styles);
 function Action() {

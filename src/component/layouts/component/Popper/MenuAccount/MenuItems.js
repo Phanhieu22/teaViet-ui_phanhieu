@@ -1,5 +1,5 @@
 import Button from '~/component/Button';
-import styles from './MenuSearch.module.scss';
+import styles from './MenuAccount.module.scss';
 import classnames from 'classnames/bind';
 const cx = classnames.bind(styles);
 function MenuItem({ data, onClick = () => {} }) {
