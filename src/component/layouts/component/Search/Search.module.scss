@@ -74,6 +74,8 @@
         right: calc(var(--width-btn_search) + 18px);
         top: 50%;
         bottom: 50%;
+        right: 20%;
+        cursor: pointer;
         color: rgba(22, 24, 35, 0.34);
     }
     .loading {

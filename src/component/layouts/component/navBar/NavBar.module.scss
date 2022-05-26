@@ -1,29 +1,30 @@
 .wrapper {
-  height:var(--height-nav-bar);
-  width: 100%;
-  display: block;
+    height: var(--height-nav-bar);
+    width: 100%;
+    display: block;
 }
 .container {
-  width: 1200px;
-  margin: 0 auto;
-  padding: 0 15px;
-  display: flex;
-  justify-content: space-between;
-  height: 100%;
-  align-items: center;
-  .logo {
-    font-size: 2rem;
-  }
-  .navigation {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
     display: flex;
-    button,
-    a {
-      font-size: 1.6rem;
-      font-weight: 500 !important;
-      color: black;
+    justify-content: space-between;
+    height: 100%;
+    align-items: center;
+    .logo {
+        font-size: 3rem;
+        font-weight: 400;
+        text-decoration: dashed;
     }
-  }
+    .navigation {
+        display: flex;
+        button,
+        a {
+            font-size: 1.6rem;
+            font-weight: 500 !important;
+            color: black;
+        }
+    }
 }
 .action {
-  
 }

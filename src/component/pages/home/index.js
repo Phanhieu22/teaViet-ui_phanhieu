@@ -29,7 +29,7 @@ export default function Home() {
     ];
     return (
         <>
-            <div style={{ height: '80%', width: '100%' }}>
+            <div>
                 <Banner />
             </div>
             phanhieui

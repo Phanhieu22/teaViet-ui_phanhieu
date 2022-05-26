@@ -89,7 +89,7 @@ const configNavBar = [
     },
     {
         icon: null,
-        title: 'liên hệ',
+        title: 'Liên hệ',
         to: '/contact',
     },
 ];

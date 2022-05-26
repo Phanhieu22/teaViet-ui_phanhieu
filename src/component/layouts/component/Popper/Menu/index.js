@@ -24,11 +24,11 @@ const Menu = forwardRef(({ children, items, onChange }, ref) => {
                 render={(attrs) => (
                     <div className="box" tabIndex="-1" {...attrs}>
                         <WrapperPopper className={cx('customWrapper')}>
-                            <div className={cx('memuItems')}>{renderItems()}</div>
+                            <div className={cx('menuItems')}>{renderItems()}</div>
                         </WrapperPopper>
                     </div>
                 )}>
-                <Button>{children}</Button>
+                <Button className={cx('menu-item')}>{children}</Button>
             </Tippy>
         </div>
     );

@@ -19,7 +19,8 @@ import './banner.scss';
 function Banner() {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     return (
-        <Swiper
+        <div className='custom-swapper'>
+            <Swiper
             style={{
                 '--swiper-navigation-color': '#fff',
                 '--swiper-pagination-color': '#fff',
@@ -28,15 +29,15 @@ function Banner() {
             spaceBetween={5}
             navigation={true}
             thumbs={{ swiper: thumbsSwiper }}
-            modules={[FreeMode, Navigation, Thumbs]}
-            className="mySwiper2">
+            modules={[FreeMode, Navigation, Thumbs]} 
+            className="mySwiper">
             <SwiperSlide className="my-swiper-slide">
                 <img src={banner3} />
                 <div className="text-content">
                     <h2 className="title">
                         <p>CHÀO MỪNG BẠN</p>
                         <p>ĐẾN VỚI VƯỜN CHÈ</p>
-                        <p className='T'>NHẬT BẢN</p>
+                        <p className="T">NHẬT BẢN</p>
                     </h2>
                     <div className="wrapper-text-banner">
                         <p className="text-banner">
@@ -63,6 +64,7 @@ function Banner() {
                 </div>
             </SwiperSlide>
         </Swiper>
+        </div>
     );
 }
 
