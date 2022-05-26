@@ -6,16 +6,26 @@ import MenuItem from '../Popper/Menu/MenuItems';
 import Search from '../Search';
 import Action from '../Action';
 import Button from '~/component/Button';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import PopperSearch from '../Popper/PopperSearch';
 const cx = classnames.bind(styles);
 
 function NavBar() {
+    const configSearch = {
+        icon: <FontAwesomeIcon icon={faMagnifyingGlass} />,
+        component: <Search />,
+    };
     return (
         <nav className={cx('wrapper')}>
             <div className={cx('container')}>
+                <div className={cx('navigationMobile')}>mobile</div>
                 <div className="logo">
-                    <Button className={cx('logo')} to="/">logo</Button>
+                    <Button className={cx('logo')} to="/">
+                        logo
+                    </Button>
                 </div>
-                <div className={cx('navigation')}>
+                <div className={cx('navigationDesktop')}>
                     {configNavBar.map((navItem, index) => {
                         let isParent = !!navItem.children;
                         if (isParent) {
@@ -25,13 +35,14 @@ function NavBar() {
                                 </Menu>
                             );
                         } else {
-                            return <MenuItem data={navItem} />;
+                            return <MenuItem key={index} data={navItem} />;
                         }
                     })}
                 </div>
-                <div className={cx('search')}>
+                <div className={cx('searchDesktop')}>
                     <Search />
                 </div>
+
                 <div className={cx('action')}>
                     <Action />
                 </div>

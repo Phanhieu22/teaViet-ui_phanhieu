@@ -11,7 +11,7 @@ import 'swiper/css/scrollbar';
 import 'swiper/css/thumbs';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-import banner2 from '~/assets/images/banner2.jpg';
+import banner6 from '~/assets/images/banner6.jpg';
 import banner3 from '~/assets/images/banner3.jpg';
 
 import './banner.scss';
@@ -19,51 +19,51 @@ import './banner.scss';
 function Banner() {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     return (
-        <div className='custom-swapper'>
+        <div className="custom-swapper">
             <Swiper
-            style={{
-                '--swiper-navigation-color': '#fff',
-                '--swiper-pagination-color': '#fff',
-            }}
-            loop={true}
-            spaceBetween={5}
-            navigation={true}
-            thumbs={{ swiper: thumbsSwiper }}
-            modules={[FreeMode, Navigation, Thumbs]} 
-            className="mySwiper">
-            <SwiperSlide className="my-swiper-slide">
-                <img src={banner3} />
-                <div className="text-content">
-                    <h2 className="title">
-                        <p>CHÀO MỪNG BẠN</p>
-                        <p>ĐẾN VỚI VƯỜN CHÈ</p>
-                        <p className="T">NHẬT BẢN</p>
-                    </h2>
-                    <div className="wrapper-text-banner">
-                        <p className="text-banner">
-                            từ đồng trà này satoen Việt Nam mang đến cho bạn những sản phẩm trà xanh nhật bản chính hiệu
-                            với chật lượng cao nhất
-                        </p>
+                style={{
+                    '--swiper-navigation-color': '#fff',
+                    '--swiper-pagination-color': '#fff',
+                }}
+                loop={true}
+                spaceBetween={5}
+                navigation={true}
+                thumbs={{ swiper: thumbsSwiper }}
+                modules={[FreeMode, Navigation, Thumbs]}
+                className="mySwiper">
+                <SwiperSlide className="my-swiper-slide">
+                    <img src={banner3} />
+                    <div className="text-content">
+                        <h2 className="title">
+                            <p>CHÀO MỪNG BẠN</p>
+                            <p>ĐẾN VỚI VƯỜN CHÈ</p>
+                            <p className="T">NHẬT BẢN</p>
+                        </h2>
+                        <div className="wrapper-text-banner">
+                            <p className="text-banner">
+                                từ đồng trà này satoen Việt Nam mang đến cho bạn những sản phẩm trà xanh nhật bản chính
+                                hiệu với chật lượng cao nhất
+                            </p>
+                        </div>
                     </div>
-                </div>
-            </SwiperSlide>
-            <SwiperSlide className="my-swiper-slide">
-                <img src={banner2} />
-                <div className="text-content">
-                    <h2 className="title">
-                        <p>CHÀO MỪNG BẠN</p>
-                        <p>ĐẾN VỚI VƯỜN CHÈ</p>
-                        <p>NHẬT BẢN</p>
-                    </h2>
-                    <div className="wrapper-text-banner">
-                        <p className="text-banner">
-                            từ đồng trà này satoen Việt Nam mang đến cho bạn những sản phẩm trà xanh nhật bản chính hiệu
-                            với chật lượng cao nhất
-                        </p>
+                </SwiperSlide>
+                <SwiperSlide className="my-swiper-slide">
+                    <img src={banner3} />
+                    <div className="text-content">
+                        <h2 className="title">
+                            <p>CHÀO MỪNG BẠN</p>
+                            <p>ĐẾN VỚI VƯỜN CHÈ</p>
+                            <p className="T">NHẬT BẢN</p>
+                        </h2>
+                        <div className="wrapper-text-banner">
+                            <p className="text-banner">
+                                từ đồng trà này satoen Việt Nam mang đến cho bạn những sản phẩm trà xanh nhật bản chính
+                                hiệu với chật lượng cao nhất
+                            </p>
+                        </div>
                     </div>
-                </div>
-            </SwiperSlide>
-        </Swiper>
+                </SwiperSlide>
+            </Swiper>
         </div>
     );
 }

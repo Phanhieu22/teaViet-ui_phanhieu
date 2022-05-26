@@ -6,6 +6,8 @@ import { Wrapper as WrapperPopper } from '~/component/layouts/component/Popper';
 import styles from './Menu.module.scss';
 import MenuItem from './MenuItems';
 import { forwardRef } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 const cx = classnames.bind(styles);
 const Menu = forwardRef(({ children, items, onChange }, ref) => {
     let isParent = !!items.children;
@@ -28,7 +30,9 @@ const Menu = forwardRef(({ children, items, onChange }, ref) => {
                         </WrapperPopper>
                     </div>
                 )}>
-                <Button className={cx('menu-item')}>{children}</Button>
+                <Button className={cx('menu-item')} rightIcon={<FontAwesomeIcon icon={faCaretDown} />}>
+                    {children}
+                </Button>
             </Tippy>
         </div>
     );

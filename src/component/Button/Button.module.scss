@@ -24,15 +24,12 @@
         opacity: 0.5;
     }
 }
-.icon + .title,
-.title + .icon {
-    margin-left: 8px;
-}
+
 .title {
     font-weight: 500px;
     text-align: center;
 }
-.icon {
+.iconNavItem {
     width: 24px;
     text-align: center;
     display: inline-block;
@@ -78,11 +75,29 @@
     min-width: 136px;
 }
 .text {
-    &:hover {
-        text-decoration: underline;
-    }
+    padding: 0 !important;
+    background-color: transparent !important;
+    color: var(--white) !important;
 }
 .icon {
     padding: 0 !important;
-    min-width: 50px !important;
+    min-width: 40px;
+}
+.btnCollections {
+    border-radius: 5px;
+    height: 45px;
+    width: 93px;
+    line-height: 45px !important;
+    margin-bottom: 10px;
+    background: #27272f;
+    font-size: 14px;
+    color: var(--white) !important;
+    text-align: center;
+    white-space: nowrap;
+    outline: none !important;
+    cursor: pointer;
+    font-weight: 400;
+    &:hover {
+        background: #91ad41 !important;
+    }
 }

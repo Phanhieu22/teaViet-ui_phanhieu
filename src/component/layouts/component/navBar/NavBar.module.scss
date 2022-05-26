@@ -1,10 +1,9 @@
 .wrapper {
     height: var(--height-nav-bar);
     width: 100%;
-    display: block;
 }
 .container {
-    width: 1200px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 15px;
     display: flex;
@@ -16,7 +15,7 @@
         font-weight: 400;
         text-decoration: dashed;
     }
-    .navigation {
+    .navigationDesktop {
         display: flex;
         button,
         a {
@@ -26,5 +25,29 @@
         }
     }
 }
+.searchDesktop {
+    display: none;
+}
+.navigationMobile {
+    display: none;
+}
 .action {
+}
+/// media query
+
+@media only screen and (min-width: 1262px) {
+    .searchDesktop {
+        display: block;
+    }
+    .searchIcon {
+        display: none;
+    }
+}
+@media only screen and (max-width: 1006px) {
+    .navigationDesktop {
+        display: none !important;
+    }
+    .navigationMobile {
+        display: block;
+    }
 }

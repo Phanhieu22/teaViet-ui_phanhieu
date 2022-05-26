@@ -1,0 +1,101 @@
+.wrapper {
+    height: 410px;
+
+    width: 100%;
+    border-top: 1px var(--white) solid;
+    overflow: hidden;
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 90%;
+        padding: 30px 20px 30px 30px;
+        .content {
+            position: relative;
+            .title {
+                padding-bottom: 10px;
+            }
+            .description {
+                position: relative;
+                z-index: 10;
+                .text {
+                    line-height: 1.7;
+                    display: block;
+                    float: left;
+                    margin-bottom: 30px;
+                    font-size: 12px;
+                    font-weight: 500;
+                    z-index: 3;
+                }
+            }
+            // .image {
+            //     position: absolute;
+            //     top: 25%;
+            //     bottom: 50%;
+            //     right: -25%;
+
+            //     height: 300px;
+            //     z-index: 1;
+            // }
+        }
+    }
+}
+.customBtnTitle {
+    font-weight: 700 !important;
+    font-size: 18px !important;
+    border-width: 0;
+    margin-left: -6px;
+}
+/// media query
+@media only screen and (min-width: 0px) {
+    .wrapper {
+        height: auto;
+    }
+    .image {
+        position: absolute;
+        top: -36%;
+        bottom: 50%;
+        right: -20%;
+        height: 260px;
+        z-index: 1;
+    }
+}
+@media only screen and (min-width: 600px) {
+    .wrapper {
+        height: 326px;
+    }
+    .image {
+        position: absolute;
+        top: -16%;
+        bottom: 50%;
+        right: -15%;
+        height: 233px;
+        z-index: 1;
+    }
+}
+@media only screen and (min-width: 600px) {
+    .wrapper {
+        height: 326px;
+    }
+    .image {
+        position: absolute;
+        top: -7%;
+        bottom: 50%;
+        right: -18%;
+        height: 263px;
+        z-index: 1;
+    }
+}
+@media only screen and (min-width: 1200px) {
+    .wrapper {
+        height: 421px;
+    }
+    .image {
+        position: absolute;
+        top: 5%;
+        bottom: 50%;
+        right: -27%;
+        height: 263px;
+        z-index: 1;
+    }
+}

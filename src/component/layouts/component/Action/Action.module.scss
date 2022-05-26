@@ -7,3 +7,11 @@
     display: flex;
     align-items: center;
 }
+.searchIcon {
+    display: none;
+}
+@media only screen and (max-width: 1200px) {
+    .searchIcon {
+        display: block;
+    }
+}

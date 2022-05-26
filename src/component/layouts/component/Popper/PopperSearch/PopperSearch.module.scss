@@ -1,0 +1,44 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: 150px;
+    transition-duration: 0.4s;
+    .container {
+        display: flex;
+        align-items: center;
+        .language {
+            flex-wrap: nowrap;
+            padding-left: 10px;
+        }
+        cursor: pointer;
+    }
+    &:hover {
+        background: rgba(22, 24, 35, 0.03);
+    }
+}
+memuItems {
+    background-color: transparent;
+}
+.menu-item {
+    line-height: 22px;
+    cursor: pointer;
+    max-width: 350px;
+    max-height: 50vh;
+    overflow-y: scroll;
+    width: 100%;
+    border-radius: 0;
+    justify-content: flex-start;
+    &:hover {
+        background: rgba(22, 24, 35, 0.03);
+    }
+}
+.customWrapper {
+    background-color: red;
+    border-radius: 999;
+    
+
+
+    padding-top: -6px;
+}

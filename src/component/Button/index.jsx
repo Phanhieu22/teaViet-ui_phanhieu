@@ -21,7 +21,9 @@ const Button = forwardRef(
             text,
             leftIcon,
             rightIcon,
+            btnCollections,
             className,
+
             ...passProps
         },
         ref
@@ -51,7 +53,7 @@ const Button = forwardRef(
 
         return (
             <Comp
-            ref ={ref}
+                ref={ref}
                 className={cx('wrapper', {
                     [className]: className,
                     primary,
@@ -61,12 +63,12 @@ const Button = forwardRef(
                     text,
                     icon,
                     disabled,
-                    rounded,
+                    rounded,btnCollections,
                 })}
                 {...props}>
-                {leftIcon && <span className={cx('icon')}>{leftIcon}</span>}
+                {leftIcon && <span className={cx('iconNavItem')}>{leftIcon}</span>}
                 <span className={cx('title')}>{children}</span>
-                {rightIcon && <span className={cx('icon')}>{rightIcon}</span>}
+                {rightIcon && <span className={cx('iconNavItem')}>{rightIcon}</span>}
             </Comp>
         );
     }
