@@ -1,0 +1,19 @@
+.swapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-basis: auto;
+    user-select: none;
+    .image {
+        width: 50%;
+        margin: auto;
+    }
+    .title {
+        margin: 10px 0;
+    }
+    .content {
+        text-align: justify;
+        font-size: 12px;
+        color: #8b8b99;
+    }
+}

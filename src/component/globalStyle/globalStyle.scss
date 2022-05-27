@@ -1,7 +1,7 @@
 @import 'normalize.css';
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,400;0,500;0,600;0,700;1,600&display=swap');
 :root {
-    --primary: rgba(254, 44, 85, 1);
+    --primary: #91ad41;
     --border-radius: 23px;
     --white: white;
     --default-horizontal-padding: 24px;
@@ -39,4 +39,8 @@ body {
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
+}
+ul ,li{
+    list-style-type: none;
+
 }

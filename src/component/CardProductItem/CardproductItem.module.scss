@@ -1,0 +1,28 @@
+.wrapper {
+    border: 0.5px #f5f6fb solid;
+    font-size: 1.6rem;
+    user-select: none;
+
+    .image {
+        width: 100%;
+    }
+    .wrapperContent {
+        background-color: #f5f6fb;
+        .nameItem {
+            padding: 0.7em 0 0.3em 0;
+            font-size: 0.9em;
+            text-align: center;
+        }
+        .price {
+            color: var(--primary);
+            text-align: center;
+            display: block;
+            width: 100%;
+            font-weight: 600;
+            font-size: 0.9em;
+            .currency {
+                text-decoration: underline;
+            }
+        }
+    }
+}

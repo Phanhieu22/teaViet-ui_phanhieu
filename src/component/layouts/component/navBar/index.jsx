@@ -1,14 +1,13 @@
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classnames from 'classnames/bind';
-import styles from './NavBar.module.scss';
+import Button from '~/component/Button';
 import { configNavBar } from '~/router';
+import Action from '../Action';
 import Menu from '../Popper/Menu';
 import MenuItem from '../Popper/Menu/MenuItems';
 import Search from '../Search';
-import Action from '../Action';
-import Button from '~/component/Button';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import PopperSearch from '../Popper/PopperSearch';
+import styles from './NavBar.module.scss';
 const cx = classnames.bind(styles);
 
 function NavBar() {

@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/free-mode';
-import 'swiper/css/navigation';
-import 'swiper/css/scrollbar';
-import 'swiper/css/thumbs';
 import Collections from '~/component/Collections';
 import Banner from '~/component/layouts/component/Banner';
 import styles from './home.module.scss';
 import classnames from 'classnames/bind';
 import About from '~/component/About';
+import EndOfPage from '~/component/EndOfPage';
+import Product from '~/component/Product';
+
 const cx = classnames.bind(styles);
 
 export default function Home() {
@@ -84,7 +81,7 @@ export default function Home() {
         },
     ];
     return (
-        <>
+        <div>
             <div>
                 <Banner />
             </div>{' '}
@@ -93,8 +90,13 @@ export default function Home() {
                 <Collections items={collectionsItem} />
             </div>
             <div className={cx('about')}>
-                <About/>
+                <About />
             </div>
-        </>
+            <div className={cx('product')}>
+               
+                <Product/>
+                
+            </div>
+        </div>
     );
 }
