@@ -2,16 +2,30 @@
     border: 0.5px #f5f6fb solid;
     font-size: 1.6rem;
     user-select: none;
+    transition: 0.2s ease;
+    position: relative;
 
     .image {
         width: 100%;
     }
     .wrapperContent {
+        transform: scale(1);
         background-color: #f5f6fb;
+
         .nameItem {
-            padding: 0.7em 0 0.3em 0;
-            font-size: 0.9em;
-            text-align: center;
+            padding: 0.6em 0.4em;
+            padding-bottom: 0.2em;
+            display: flex;
+            justify-content: center;
+            h5 {
+                font-size: 1em;
+                display: block;
+                text-align: center;
+            }
+
+            &:hover {
+                color: var(--primary);
+            }
         }
         .price {
             color: var(--primary);
@@ -20,9 +34,42 @@
             width: 100%;
             font-weight: 600;
             font-size: 0.9em;
+            padding-bottom: 0.5em;
             .currency {
                 text-decoration: underline;
             }
+        }
+    }
+
+    .layer {
+        display: none;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background-color: rgba($color: #000000, $alpha: 0.1);
+
+        .buttonWrapper {
+            position: relative;
+            top: 50%;
+
+            display: flex;
+            justify-content: center;
+            flex-basis: auto;
+
+            .customBtn {
+                height: 2.5em;
+                width: 2.5em;
+                font-size: 1em;
+                text-align: center;
+            }
+        }
+    }
+    &:hover {
+        box-shadow: 5px 5px 30px 2px #bfbfc3;
+        .layer {
+            display: block;
         }
     }
 }

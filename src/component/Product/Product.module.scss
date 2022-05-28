@@ -30,14 +30,44 @@
         }
     }
 }
-.wrapperBtn {
+.wrapperBtnDesktop {
     display: flex;
     justify-content: center;
     li:not(:last-child) {
         padding-right: 1em;
         .customBtn {
-            font-weight: 600;
+            font-weight: 500;
             font-size: 1.2em;
         }
     }
+}
+.items {
+    margin-top: 1em !important;
+}
+@media (max-width: 1036px) {
+    .customBtn {
+        font-size: 1rem !important;
+    }
+}
+@media (max-width: 710px) {
+    .customBtn {
+        font-size: 1rem !important;
+    }
+    .wrapperBtnDesktop {
+        display: none;
+    }
+    .wrapperBtnMobile {
+        display: block !important;
+    }
+}
+.active {
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+.wrapperBtnMobile {
+    display: none;
+}
+.activeMobile {
+    color: var(--primary);
 }

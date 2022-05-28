@@ -47,8 +47,9 @@ function CertifiedShowMobile({ data }) {
             loop={true}
             spaceBetween={50}
             slidesPerView={setCol(widthScreen)}
-            onSlideChange={() => console.log('slide change')}
-            onSwiper={(swiper) => console.log(swiper)}>
+            // onSlideChange={() => console.log('slide change')}
+            // onSwiper={(swiper) => console.log(swiper)}
+        >
             {data.map((item) => (
                 <SwiperSlide className={cx('slice')} key={item.id}>
                     <CardCertifiedShow data={item} />
