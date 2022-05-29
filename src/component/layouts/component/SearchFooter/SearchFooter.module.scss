@@ -1,0 +1,102 @@
+.search,
+.searchResult {
+    width: 453px;
+}
+.searchResult {
+    font-size: 16px;
+    .accountSearch {
+        margin: 5px 20px;
+        color: #959fa6;
+        font-weight: 400;
+    }
+}
+.search {
+    --width-btn_search: 52px;
+
+    display: flex;
+    flex-basis: auto;
+    background-color: #fff;
+
+    height: 42px;
+    caret-color: rgb(254, 44, 85);
+    border-radius: var(--border-radius);
+    padding: 0 0 0 20px;
+    border: solid 1.5px transparent;
+    position: relative;
+    input {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 22px;
+        border: none;
+        background: transparent;
+        outline: none;
+        padding: 0px;
+        width: 252px;
+        caret-color: rgb(254, 44, 85);
+        flex-grow: 2;
+        caret-color: var(--primary);
+    }
+    input:not(:placeholder-shown) ~ .btnIconSearch {
+        font-size: 1.1em;
+    }
+    .spanSplitter {
+        width: 1px;
+        height: 28px;
+        margin: auto 0;
+        background: rgba(22, 24, 35, 0.12);
+        display: block;
+    }
+    .btnIconSearch {
+        height: 100%;
+        width: 6em;
+        transition: 0.4s ease;
+        font-size: 1em;
+        background-origin: content-box;
+        border-radius: var(--border-radius);
+        background-color: transparent;
+        background-image: -webkit-linear-gradient(35deg, #91ad41 0%, #ff8a6c 100%) !important;
+        color: rgba(22, 24, 35, 0.34);
+        color: var(--white);
+    }
+    .btnIconSearch:hover {
+        cursor: pointer;
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+    .btnIconSearch:active {
+        cursor: pointer;
+        background-color: rgba(22, 24, 35, 0.06);
+    }
+
+    .clear,
+    .loading {
+        align-items: center;
+        display: flex;
+        position: absolute;
+        right: calc(var(--width-btn_search) + 18px);
+        top: 50%;
+        bottom: 50%;
+        right: 30%;
+        cursor: pointer;
+        color: rgba(22, 24, 35, 0.34);
+    }
+    .loading {
+        animation: spinner 0.7s linear infinite;
+    }
+    &:focus-within {
+        border-color: rgba(22, 24, 35, 0.2);
+    }
+}
+@keyframes spinner {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+@media (max-width: 670px) {
+    .search,
+    .searchResult {
+        width: 323px;
+    }
+}

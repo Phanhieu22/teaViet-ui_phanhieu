@@ -192,60 +192,62 @@ function Product() {
         }
     };
     return (
-        <Container className={cx('wrapper')} maxWidth="lg">
-            <Grid container>
-                <Grid item xs={12}>
-                    <div className={cx('title')}>
-                        <h2></h2>
-                    </div>
-                </Grid>
-                <Grid item xs={12}>
-                    <ul className={cx('wrapperBtnDesktop')}>
-                        {data.map((items, index) => (
-                            <li key={index}>
-                                <Button
-                                    onClick={() => handleSetItemsActive(items)}
-                                    className={cx(
-                                        'customBtn',
-                                        productItemActive.nameItems === items.nameItems ? 'active' : ''
-                                    )}
-                                    rounded
-                                    outline>
-                                    {items.nameItems}
-                                </Button>
-                            </li>
-                        ))}
-                    </ul>
-                    <div className={cx('wrapperBtnMobile')}>
-                        <SelectButton
-                            title="DANH MỤC SẢN PHẨM"
-                            outline
-                            rounded
-                            rightIcon={<FontAwesomeIcon icon={faCaretDown} />}>
+        <div className={cx('wrapper')}>
+            <Container className={cx('wrapper')} maxWidth="lg">
+                <Grid container>
+                    <Grid item xs={12}>
+                        <div className={cx('title')}>
+                            <h2></h2>
+                        </div>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <ul className={cx('wrapperBtnDesktop')}>
                             {data.map((items, index) => (
                                 <li key={index}>
                                     <Button
                                         onClick={() => handleSetItemsActive(items)}
                                         className={cx(
                                             'customBtn',
-                                            productItemActive.nameItems === items.nameItems ? 'activeMobile' : ''
-                                        )}>
+                                            productItemActive.nameItems === items.nameItems ? 'active' : ''
+                                        )}
+                                        rounded
+                                        outline>
                                         {items.nameItems}
                                     </Button>
                                 </li>
                             ))}
-                        </SelectButton>
-                    </div>
-                </Grid>{' '}
-                <Grid className={cx('items')} spacing={3} container>
-                    {productItemActive.items.map((item, index) => (
-                        <Grid key={index} item xs={setCol(widthScreen)}>
-                            <CardProductItem key={index} item={item} />{' '}
-                        </Grid>
-                    ))}
+                        </ul>
+                        <div className={cx('wrapperBtnMobile')}>
+                            <SelectButton
+                                title="DANH MỤC SẢN PHẨM"
+                                outline
+                                rounded
+                                rightIcon={<FontAwesomeIcon icon={faCaretDown} />}>
+                                {data.map((items, index) => (
+                                    <li key={index}>
+                                        <Button
+                                            onClick={() => handleSetItemsActive(items)}
+                                            className={cx(
+                                                'customBtn',
+                                                productItemActive.nameItems === items.nameItems ? 'activeMobile' : ''
+                                            )}>
+                                            {items.nameItems}
+                                        </Button>
+                                    </li>
+                                ))}
+                            </SelectButton>
+                        </div>
+                    </Grid>{' '}
+                    <Grid className={cx('items')} spacing={3} container>
+                        {productItemActive.items.map((item, index) => (
+                            <Grid key={index} item xs={setCol(widthScreen)}>
+                                <CardProductItem setting search key={index} item={item} />{' '}
+                            </Grid>
+                        ))}
+                    </Grid>
                 </Grid>
-            </Grid>
-        </Container>
+            </Container>
+        </div>
     );
 }
 
