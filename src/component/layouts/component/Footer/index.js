@@ -12,7 +12,9 @@ import {
     faLocationDot,
     faMobile,
     faMobileAlt,
+    faPlus,
 } from '@fortawesome/free-solid-svg-icons';
+import SelectButton from '~/component/SelectButton';
 
 const cx = classnames.bind(styles);
 const configMenuFooter = [
@@ -122,7 +124,7 @@ function Footer() {
                             </div>
                         </div>
                     </Grid>{' '}
-                    <Grid item xs={12} md={8}>
+                    <Grid className={cx('contentDesktop')} item xs={12} md={8}>
                         <Grid className={cx('menuFooterDesktop')} spacing={2} container>
                             {configMenuFooter.map((items, index) => (
                                 <Grid key={index} xs={4} item>
@@ -136,11 +138,29 @@ function Footer() {
                             ))}
                         </Grid>
                     </Grid>
+                    <Grid className={cx('contentMobile')} item xs={12} md={8}>
+                        <Grid className={cx('menuFooterMobile')} spacing={2} container>
+                            {configMenuFooter.map((items, index) => (
+                                <Grid key={index} xs={12} item>
+                                    <SelectButton
+                                        menuFooter
+                                        title={items.title}
+                                        rightIcon={<FontAwesomeIcon icon={faPlus} />}>
+                                        {items.children.map((item, index) => (
+                                            <li key={index}>
+                                                <Button className={cx('customBtn')} text to={item.to}>
+                                                    {item.nameItem}
+                                                </Button>
+                                            </li>
+                                        ))}
+                                    </SelectButton>
+                                </Grid>
+                            ))}
+                        </Grid>
+                    </Grid>
                 </Grid>
             </Container>
-            <div className={cx('copyRight')}>
-               
-            </div>
+            <div className={cx('copyRight')}></div>
         </footer>
     );
 }

@@ -5,6 +5,7 @@
     justify-content: center;
     font-size: 1.5rem;
     font-weight: 500;
+    flex-basis: auto;
     height: 100%;
     position: relative;
 
@@ -18,8 +19,9 @@
     text-align: center;
     .iconRight {
         position: absolute;
-        font-size: 1em;
-        right: 2%;
+        font-size: 1.2em;
+
+        right: 4%;
     }
 }
 .outline {
@@ -33,15 +35,16 @@
         font-size: 1.2em;
     }
 }
+.menuFooter {
+    justify-content: left !important;
+}
 .position {
     user-select: none;
     position: relative;
     margin-top: 1em;
-    height: 150px;
     overflow: hidden;
-    animation-name: content;
-    animation-duration: 0.4s;
-    animation-timing-function: ease-out;
+    transition: 2s ease;
+
     .content {
         position: absolute;
         top: 0;
@@ -56,6 +59,39 @@
         overflow: hidden;
     }
 }
+.height150 {
+    animation-name: content;
+    animation-duration: 0.4s;
+    animation-timing-function: ease-out;
+    height: 150px;
+}
+// .height0 {
+//     animation-name: content;
+//     animation-duration: 0.4s;
+//     animation-direction: reverse;
+//     animation-timing-function: ease-out;
+//     height: 0px;
+// }
+.handleOpen {
+    animation-name: content;
+    animation-duration: 0.4s;
+    animation-timing-function: ease-out;
+}
+.handleClose {
+    animation-name: close;
+    animation-duration: 0.4s;
+    animation-timing-function: ease-out;
+}
+
+@keyframes close {
+    from {
+        height: 150px !important;
+    }
+    to {
+        height: 0px !important;
+    }
+}
+
 @keyframes content {
     from {
         height: 0px;

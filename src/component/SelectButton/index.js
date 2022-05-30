@@ -13,6 +13,7 @@ function SelectButton({
     rightIcon,
     disabled,
     onClick,
+    menuFooter,
     className,
     ...passProps
 }) {
@@ -35,6 +36,11 @@ function SelectButton({
         setModelDisplay(!modelDisplay);
     };
 
+    const handleEffectClose = (modelDisplay) => {
+        if (modelDisplay) {
+            return 'height150';
+        } 
+    };
     return (
         <div>
             <Comp
@@ -43,6 +49,7 @@ function SelectButton({
                     outline,
                     disabled,
                     rounded,
+                    menuFooter,
                 })}
                 onClick={handleDisplay}>
                 {leftIcon && <span className={cx('iconNavItem')}>{leftIcon}</span>}
@@ -51,17 +58,14 @@ function SelectButton({
                 </span>
                 {rightIcon && <span className={cx('iconRight')}>{rightIcon}</span>}
             </Comp>
-            {modelDisplay && (
-                <div className={cx('position')}>
-                    {modelDisplay && (
-                        <div>
-                            <ul onClick={handleDisplay} className={cx('content')}>
-                                <span onClick={handleDisplay}>{children}</span>
-                            </ul>
-                        </div>
-                    )}
+
+            <div className={cx(cx('position', handleEffectClose(modelDisplay)))}>
+                <div>
+                    <ul onClick={handleDisplay} className={cx('content')}>
+                        <span onClick={handleDisplay}>{children}</span>
+                    </ul>
                 </div>
-            )}
+            </div>
         </div>
     );
 }
