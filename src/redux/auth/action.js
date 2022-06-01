@@ -1,6 +1,5 @@
 import { createActions, createAction } from 'redux-actions';
-
-const getUser = createActions({
+    const getUser = createActions({
     getUserRequest: undefined,
     getUserSuccess: (payload) => payload,
     getUserFailure: (error) => error,
@@ -8,15 +7,18 @@ const getUser = createActions({
 
 const createUser = createActions({
     createUserRequest: (payload) => payload,
-    createUserSucces: (payload) => {
+    createUserSuccess: (payload) => {
         return payload;
     },
-    createUserFaiure: undefined,
+    createUserFailure: undefined,
 });
 
 const loginUser = createActions({
     loginUserRequest: (payload) => payload,
-    loginUserSuccess: (payload) => payload,
+    loginUserSuccess: (payload) => {
+        // toast.success('Đăng ký thành công');
+        return payload;
+    },
     loginUserFailure: undefined,
 });
 const logoutUser = createActions({

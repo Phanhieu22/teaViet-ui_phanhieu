@@ -9,7 +9,7 @@ import { forwardRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 const cx = classnames.bind(styles);
-const Menu = forwardRef(({ children, items, onChange }, ref) => {
+const Menu = forwardRef(({ children, items, onChange, hideOnClick = false }, ref) => {
     let isParent = !!items.children;
     const renderItems = () => {
         if (isParent === true) {
@@ -21,6 +21,7 @@ const Menu = forwardRef(({ children, items, onChange }, ref) => {
         <div ref={ref} className={cx('menu')}>
             <Tippy
                 interactive
+                hideOnClick={hideOnClick}
                 offset={[12, 8]}
                 placement="bottom-start"
                 render={(attrs) => (

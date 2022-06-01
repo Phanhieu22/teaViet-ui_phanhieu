@@ -38,10 +38,12 @@
     justify-content: center;
     li:not(:last-child) {
         padding-right: 1em;
-        .customBtn {
-            font-weight: 500;
-            font-size: 1.2em;
-        }
+    }
+}
+.customBtn {
+    font-weight: 500;
+    span {
+        font-size: 1.3em;
     }
 }
 .items {

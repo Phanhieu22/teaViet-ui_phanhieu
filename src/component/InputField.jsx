@@ -12,6 +12,8 @@ function InputField(props) {
                 onBlur={onBlur}
                 name={name}
                 type={type}
+                InputProps={{ style: { fontSize: 18 } }}
+                InputLabelProps={{ style: { fontSize: 18 } }}
                 disabled={disabled}
                 value={value}
                 className={className}

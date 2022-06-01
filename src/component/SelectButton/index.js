@@ -1,6 +1,8 @@
 import styles from './SelectButton.module.scss';
 import classnames from 'classnames/bind';
 import { useState } from 'react';
+import { Collapse, List, ListItemButton, ListItemIcon, ListItemText, ListSubheader } from '@mui/material';
+import { ExpandLess, ExpandMore } from '@mui/icons-material';
 
 const cx = classnames.bind(styles);
 
@@ -15,6 +17,7 @@ function SelectButton({
     onClick,
     menuFooter,
     className,
+    key,
     ...passProps
 }) {
     const [modelDisplay, setModelDisplay] = useState(false);
@@ -23,6 +26,11 @@ function SelectButton({
 
     let props = {
         onClick,
+        key: key,
+        disabled,
+        outline,
+        rounded,
+        title,
         ...passProps,
     };
     if (disabled) {
@@ -39,34 +47,25 @@ function SelectButton({
     const handleEffectClose = (modelDisplay) => {
         if (modelDisplay) {
             return 'height150';
-        } 
+        }
     };
     return (
-        <div>
-            <Comp
-                className={cx('wrapper', {
-                    [className]: className,
-                    outline,
-                    disabled,
-                    rounded,
-                    menuFooter,
-                })}
-                onClick={handleDisplay}>
-                {leftIcon && <span className={cx('iconNavItem')}>{leftIcon}</span>}
-                <span {...props} className={cx('container')}>
-                    <div className={cx('title')}>{title}</div>
-                </span>
-                {rightIcon && <span className={cx('iconRight')}>{rightIcon}</span>}
-            </Comp>
-
-            <div className={cx(cx('position', handleEffectClose(modelDisplay)))}>
-                <div>
-                    <ul onClick={handleDisplay} className={cx('content')}>
-                        <span onClick={handleDisplay}>{children}</span>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        <List
+            
+            className={cx('wrapper', outline, rounded)}
+            sx={{
+                width: '100%',
+            }}
+            component="nav"
+            aria-labelledby="nested-list-subheader">
+            <ListItemButton onClick={handleDisplay}>
+                <ListItemText primary={title} />
+                {modelDisplay ? <ExpandLess /> : <ExpandMore />}
+            </ListItemButton>
+            <Collapse in={modelDisplay} timeout="auto" unmountOnExit>
+                {children}
+            </Collapse>
+        </List>
     );
 }
 

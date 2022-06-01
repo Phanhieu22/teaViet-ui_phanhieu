@@ -11,10 +11,10 @@ const Auth = (state = INIT_STATE, action) => {
         case getTypeAction(getUser.getUserRequest): {
             return state;
         }
-        case getTypeAction(createUser.createUserSucces): {
+        case getTypeAction(createUser.createUserSuccess): {
             return { ...state, authLoading: false, isAuthenticated: true, user: payload.user };
         }
-        case getTypeAction(createUser.createUserFaiure): {
+        case getTypeAction(createUser.createUserFailure): {
             return { ...state, authLoading: false, isAuthenticated: false };
         }
         case getTypeAction(loginUser.loginUserSuccess): {

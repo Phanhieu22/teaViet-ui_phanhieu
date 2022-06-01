@@ -1,9 +1,11 @@
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classnames from 'classnames/bind';
+import { useState } from 'react';
 import Button from '~/component/Button';
 import { configNavBar } from '~/router';
 import Action from '../Action';
+import NavMobile from '../NavMobile';
 import Menu from '../Popper/Menu';
 import MenuItem from '../Popper/Menu/MenuItems';
 import Search from '../Search';
@@ -11,14 +13,23 @@ import styles from './NavBar.module.scss';
 const cx = classnames.bind(styles);
 
 function NavBar() {
-    const configSearch = {
-        icon: <FontAwesomeIcon icon={faMagnifyingGlass} />,
-        component: <Search />,
+    const [open, setOpen] = useState(false);
+
+    const handleClickOpen = () => {
+        setOpen(true);
     };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+  
     return (
         <nav className={cx('wrapper')}>
             <div className={cx('container')}>
-                <div className={cx('navigationMobile')}>mobile</div>
+                <div className={cx('navigationMobile')}>
+                    <FontAwesomeIcon className={cx('iconBars')} icon={faBars} onClick={handleClickOpen} />
+                    <NavMobile open={open} handleClose={handleClose}/>
+                </div>
                 <div className="logo">
                     <Button className={cx('logo')} to="/">
                         logo

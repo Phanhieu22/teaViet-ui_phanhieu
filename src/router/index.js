@@ -104,10 +104,16 @@ const configFeatureAccount = {
                 to: '/account',
                 title: 'Tài khoản',
             },
+
             {
                 id: '2',
                 to: '/login',
                 title: 'Đăng nhập',
+            },
+            {
+                id: '3',
+                to: '/register',
+                title: 'Đăng ký',
             },
         ],
     },

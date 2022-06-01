@@ -1,29 +1,9 @@
 .wrapper {
-    width: 100%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    font-weight: 500;
-    flex-basis: auto;
-    height: 100%;
-    position: relative;
-
-    border-radius: 4px;
-    min-width: 100px;
-    padding: 9px 16px;
-    cursor: pointer;
-    border: 1px solid transparent;
-    background-color: var(--white);
-    user-select: none;
-    text-align: center;
-    .iconRight {
-        position: absolute;
-        font-size: 1.2em;
-
-        right: 4%;
-    }
+    font-size: 1.4rem;
 }
+.customTitle {
+}
+
 .outline {
     border-color: var(--primary);
 }

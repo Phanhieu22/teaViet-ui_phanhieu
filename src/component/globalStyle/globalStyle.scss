@@ -68,3 +68,39 @@ html *::-webkit-scrollbar-track {
     border-radius: 0;
     background-color: rgba(0, 0, 0, 0);
 }
+.css-10hburv-MuiTypography-root {
+    font-size: 2rem !important;
+}
+.css-pwyk3z-MuiBadge-badge {
+    min-width: 9px !important;
+    line-height: 1;
+    height: 15px !important;
+    border-radius: 10px;
+    z-index: 1;
+    background-color: #2e7d32;
+    color: #fff;
+    top: -1px !important;
+    right: -5px !important;
+}
+// dialog
+
+.css-hz1bth-MuiDialog-container {
+    justify-content: left !important;
+    align-items: flex-start !important;
+    height: 110% !important;
+    .MuiPaper-root {
+        margin: 0;
+        max-width: 250px;
+        height: 100vh;
+        background-color: var(--primary);
+        color: white;
+    }
+}
+.css-i4bv87-MuiSvgIcon-root {
+    font-size: 2.5rem !important;
+}
+// help text login from
+.MuiFormHelperText-root {
+    font-size: 0.9em !important;
+    color: red !important;
+}

@@ -1,24 +1,25 @@
-import { Grid } from '@mui/material';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import Checkbox from '@mui/material/Checkbox';
+import classnames from 'classnames/bind';
 import { FastField, Form, Formik } from 'formik';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
 import * as Yup from 'yup';
+import login from '~/assets/images/login.jpg';
+import Button from '~/component/Button';
 import iconFacebook from '../../../../assets/iconFacebook.jpg';
 import iconGoogle from '../../../../assets/iconGoogle.png';
 import iconTwitter from '../../../../assets/iconTwitter.png';
 import { loginUser } from '../../../../redux/auth/action';
 import InputField from '../../../InputField';
-import './login.scss';
+import styles from './login.module.scss';
 
+
+const cx = classnames.bind(styles);
 function Login() {
     const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
-    const initialValue = { userName: '', password: '' };
+    const initialValue = { email: '', password: '' };
     const dispatch = useDispatch();
 
     return (
@@ -26,8 +27,8 @@ function Login() {
             <Formik
                 initialValues={initialValue}
                 validationSchema={Yup.object().shape({
-                    userName: Yup.string().required('user name is required'),
-                    password: Yup.string().required('password is required'),
+                    email: Yup.string().required('vui lòng nhập trường này'),
+                    password: Yup.string().required('vui lòng nhập trường này'),
                 })}
                 onSubmit={(value, { resetForm }) => {
                     dispatch(loginUser.loginUserRequest(value));
@@ -36,72 +37,66 @@ function Login() {
                 {(formikProps) => {
                     // console.log({ values, errors, touched });
                     return (
-                        <div className="backgroundForm">
+                        <div className={cx('wrapper')}>
                             {/*  do somethink here */}
-                            <Box className="form">
-                                <Box className="headerForm">
-                                    <h2> Login now !</h2>
-                                </Box>
-                                <Form className="validateForm">
+                            <img className={cx('background')} src={login} alt="background" />
+                            <div className={cx('form')}>
+                                <h2> Đăng nhập !</h2>
+
+                                <Form className={cx('validateForm')}>
                                     <FastField
-                                        name="userName"
+                                        name="email"
                                         component={InputField}
-                                        className="textField"
-                                        label="User name*"
+                                        className={cx('textField')}
+                                        label="Nhập email để đăng nhập *"
                                     />
 
                                     <FastField
                                         name="password"
                                         component={InputField}
-                                        className="textField"
+                                        className={cx('textField')}
                                         label="Password*"
                                         type="password"
                                     />
-                                    <Box>
-                                        <Grid className="controlsAction" container>
-                                            <Grid item xs={6}>
-                                                <Button className="text-transform-none" component="a">
-                                                    Forgot password
-                                                </Button>
-                                            </Grid>{' '}
-                                            <Grid item xs={6}>
-                                                <Box className="d-flex rememberAccount">
-                                                    <Checkbox {...label} defaultChecked />
-                                                    <h4 className="d-block">remember me</h4>
-                                                </Box>
-                                            </Grid>{' '}
-                                        </Grid>{' '}
-                                    </Box>
+                                    <div className={cx('controlsAction')}>
+                                        <div className={cx('forgotPass')}>
+                                            <Button to="/forgotPass" className={cx('customBtnForgotPass')}>
+                                                Quên mật khẩu
+                                            </Button>
+                                        </div>
+                                        <div className={cx('remember')}>
+                                            <Checkbox {...label} defaultChecked />
+                                            <h5 className={cx('d-block')}>lưu tài khoản</h5>
+                                        </div>
+                                    </div>
                                     <Box>
                                         {' '}
-                                        <Button className="submit" variant="contained" color="info" type="submit">
-                                            Login
+                                        <Button className={cx('submit')} type="submit">
+                                            Đăng nhập
                                         </Button>
                                     </Box>
-                                    <p className="toRegister">
-                                        you dont't have account
-                                        <Link to={'/register'}>
-                                            <Button className="text-transform-none" color="info">
-                                                Register
-                                            </Button>
-                                        </Link>
-                                    </p>
+                                    <span className={cx('toRegister')}>
+                                        bạn chưa có tài khoản vui lòng đăng ký
+                                        <Button to="./register" className={cx('customBtnForgotPass')}>
+                                            tại đây
+                                        </Button>
+                                    </span>
                                 </Form>
                                 <Box>
                                     <p>----------or login with-----------</p>
-                                    <Box className="containerIcon">
-                                        <Box className="icon">
+                                    <Box className={cx('containerIcon')}>
+                                        <Box className={cx('icon')}>
                                             <img src={iconFacebook} alt="icon contact facebook" />
                                         </Box>{' '}
-                                        <Box className="icon">
+                                        <Box className={cx('icon')}>
                                             <img src={iconGoogle} alt="icon contact facebook" />
                                         </Box>{' '}
-                                        <Box className="icon">
+                                        <Box className={cx('icon')}>
                                             <img src={iconTwitter} alt="icon contact facebook" />
                                         </Box>{' '}
                                     </Box>
                                 </Box>
-                            </Box>
+                            </div>
                         </div>
                     );
                 }}

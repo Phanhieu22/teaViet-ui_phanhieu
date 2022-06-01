@@ -81,8 +81,9 @@
 .text {
     padding: 0 !important;
     background-color: transparent !important;
-    color: var(--white) !important;
+    color: var(--white);
 }
+
 .icon {
     padding: 0 !important;
     min-width: 40px;

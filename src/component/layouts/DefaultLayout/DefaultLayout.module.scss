@@ -1,4 +1,11 @@
 .wrapper {
     display: flex;
     flex-direction: column;
+    position: relative;
+    .speedDial {
+        position: fixed;
+        z-index: 900;
+        bottom: 5%;
+        right: 3%;
+    }
 }

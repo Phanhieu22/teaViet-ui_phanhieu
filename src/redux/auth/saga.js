@@ -5,6 +5,7 @@ import History from '../../History.js';
 import setAuthToken from '../../utils/setAuthToken';
 import { setUpUser } from '../action';
 import * as actions from './action';
+import * as actions2 from '../action';
 import { LOCAL_STOGARE_TOKEN_NAME } from './constans';
 
 function* workerGetUser() {
@@ -34,7 +35,9 @@ function* workerLoginUser(user) {
 }
 
 function* workerUserRegister(user) {
+    console.log(user);
     const response = yield call(userRegister, `${apiConfig.apiGateway.server1}/auth/register`, user);
+    console.log(response);
     if (response.data?.success) {
         // lưu token vào local storage
         localStorage.setItem(LOCAL_STOGARE_TOKEN_NAME, response.data.accessToken);
@@ -43,15 +46,16 @@ function* workerUserRegister(user) {
         }
 
         const testToken = yield call(checkToken, `${apiConfig.apiGateway.server1}/auth`);
+        console.log(testToken);
 
         if (testToken.data.success) {
-            yield put(actions.createUser.createUserSucces(testToken.data));
+            yield put(actions.createUser.createUserSuccess(testToken.data));
             History.push('/');
         } else {
             setAuthToken(null);
         }
     } else {
-        yield put(actions.createUser.createUserFaiure);
+        yield put(actions.createUser.createUserFailure);
     }
 }
 function* workerSetUpUser() {
@@ -60,6 +64,7 @@ function* workerSetUpUser() {
         const testToken = yield call(checkToken, `${apiConfig.apiGateway.server1}/auth`);
         if (testToken.data.success) {
             yield put(actions.loginUser.loginUserSuccess(testToken.data));
+            yield call(actions2.setUpUser.setUpUserSuccess, testToken.data);
         } else {
             setAuthToken(null);
             localStorage.removeItem(LOCAL_STOGARE_TOKEN_NAME);
