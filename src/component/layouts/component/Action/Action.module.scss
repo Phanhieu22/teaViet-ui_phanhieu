@@ -6,6 +6,7 @@
 .wrapper {
     display: flex;
     align-items: center;
+    position: relative;
 }
 .searchIcon {
     display: none;
@@ -14,4 +15,13 @@
     .searchIcon {
         display: block;
     }
+}
+.modalLogout {
+    position: position;
+    top: 50%;
+    right: 50%;
+    height: 10em;
+    background-color: white;
+    z-index: 999;
+    width: 15em;
 }

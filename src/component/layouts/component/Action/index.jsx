@@ -1,34 +1,85 @@
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Badge } from '@mui/material';
 import classNames from 'classnames/bind';
-import Button from '~/component/Button';
+import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 import MenuListItem from '~/component/layouts/component/Popper/menuItemCart/MenuListItem';
 import MenuListItemLanguage from '~/component/layouts/component/Popper/menuListItemLanguage';
-import { configCart, configFeatureAccount, configLanguage } from '~/router';
+import { logoutUser } from '~/redux/auth/action';
+import { selectorAuthState } from '~/redux/auth/selector';
+import { configCart, configLanguage } from '~/router';
 import MenuSearch from '../Popper/MenuAccount';
 import PopperSearch from '../Popper/PopperSearch';
-
-import { useSelector } from 'react-redux';
 import Search from '../Search';
 import styles from './Action.module.scss';
-import { selectorAuthState } from '~/redux/auth/selector';
 
 const cx = classNames.bind(styles);
+
 function Action() {
+    const dispatch = useDispatch();
     const configSearch = {
         icon: <FontAwesomeIcon icon={faMagnifyingGlass} />,
         component: <Search />,
     };
-    // const auth = useSelector(selectorAuthState);
+    const auth = useSelector(selectorAuthState);
+    const configFeatureAccountNotLogin = {
+        avatar: <FontAwesomeIcon icon={faUserPlus} />,
+        children: {
+            title: 'product',
+            data: [
+                {
+                    id: '1',
+                    to: '/account',
+                    title: 'Tài khoản',
+                },
+
+                {
+                    id: '2',
+                    to: '/login',
+                    title: 'Đăng nhập',
+                },
+            ],
+        },
+    };
+    const configFeatureAccountLogin = {
+        avatar: <FontAwesomeIcon icon={faUserPlus} />,
+        children: {
+            title: 'product',
+            data: [
+                {
+                    id: '1',
+                    to: '/account',
+                    title: 'Tài khoản',
+                },
+                {
+                    id: '3',
+                    title: 'Đăng xuất',
+                    onclick: (logout) => {
+                        var answer = window.confirm('bạn có chắc chắn muốn đăng xuất ?');
+                        if (answer) {
+                            dispatch(logoutUser.logoutUseRequest());
+                            toast.success('Đăng xuất thành công');
+                        } else {
+                        }
+                    },
+                },
+            ],
+        },
+    };
+  
 
     return (
         <div className={cx('wrapper')}>
+        
+
             <div className={cx('searchIcon')}>
                 <PopperSearch items={configSearch}> {configSearch.icon}</PopperSearch>
             </div>
             <div className={cx('iconAvatar')}>
-                <MenuSearch items={configFeatureAccount}>{configFeatureAccount.avatar}</MenuSearch>
+                <MenuSearch items={!!auth.user ? configFeatureAccountLogin : configFeatureAccountNotLogin}>
+                    {configFeatureAccountLogin.avatar}
+                </MenuSearch>
             </div>
             <div className={cx('iconCart')}>
                 {' '}

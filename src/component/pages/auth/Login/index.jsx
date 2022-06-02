@@ -14,7 +14,6 @@ import { loginUser } from '../../../../redux/auth/action';
 import InputField from '../../../InputField';
 import styles from './login.module.scss';
 
-
 const cx = classnames.bind(styles);
 function Login() {
     const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
@@ -77,7 +76,7 @@ function Login() {
                                     </Box>
                                     <span className={cx('toRegister')}>
                                         bạn chưa có tài khoản vui lòng đăng ký
-                                        <Button to="./register" className={cx('customBtnForgotPass')}>
+                                        <Button to="/register" className={cx('customBtnForgotPass')}>
                                             tại đây
                                         </Button>
                                     </span>

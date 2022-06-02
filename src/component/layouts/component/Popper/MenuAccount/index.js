@@ -11,7 +11,9 @@ const MenuAccount = forwardRef(({ children, items, onChange }, ref) => {
     let isParent = !!items.children;
     const renderItems = () => {
         if (isParent === true) {
-            return items.children.data.map((navItem) => <MenuItem key={navItem.id} data={navItem} />);
+            return items.children.data.map((navItem) => (
+                <MenuItem onClick={navItem.onclick} key={navItem.id} data={navItem} />
+            ));
         }
     };
 

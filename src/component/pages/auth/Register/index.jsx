@@ -75,7 +75,7 @@ function Register() {
                                     </Box>
                                     <span className={cx('toRegister')}>
                                         bạn đã có tài khoản vui lòng đăng nhập
-                                        <Button to="./register" className={cx('customBtnForgotPass')}>
+                                        <Button to="/login" className={cx('customBtnForgotPass')}>
                                             tại đây
                                         </Button>
                                     </span>

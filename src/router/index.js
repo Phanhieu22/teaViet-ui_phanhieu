@@ -1,6 +1,5 @@
-import { faCartPlus, faEarthAsia, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { faCartPlus, faEarthAsia } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import classNames from 'classnames/bind';
 import { FlagEngland, FlagVietNam } from '~/component/icons';
 import BlogLayout from '~/component/layouts/blog';
 import Login from '../component/pages/auth/Login';
@@ -94,30 +93,7 @@ const configNavBar = [
     },
 ];
 
-const configFeatureAccount = {
-    avatar: <FontAwesomeIcon icon={faUserPlus} />,
-    children: {
-        title: 'product',
-        data: [
-            {
-                id: '1',
-                to: '/account',
-                title: 'Tài khoản',
-            },
 
-            {
-                id: '2',
-                to: '/login',
-                title: 'Đăng nhập',
-            },
-            {
-                id: '3',
-                to: '/register',
-                title: 'Đăng ký',
-            },
-        ],
-    },
-};
 const configCart = {
     icon: <FontAwesomeIcon icon={faCartPlus} />,
     children: {
@@ -185,4 +161,12 @@ const publicRoute = [
     },
 ];
 const privateRoute = [];
-export { configNavBar, configFeatureAccount, configCart, configLanguage, publicRoute, privateRoute };
+export {
+    configNavBar,
+
+    configCart,
+    configLanguage,
+    publicRoute,
+    privateRoute,
+};
+

@@ -35,9 +35,7 @@ function* workerLoginUser(user) {
 }
 
 function* workerUserRegister(user) {
-    console.log(user);
     const response = yield call(userRegister, `${apiConfig.apiGateway.server1}/auth/register`, user);
-    console.log(response);
     if (response.data?.success) {
         // lưu token vào local storage
         localStorage.setItem(LOCAL_STOGARE_TOKEN_NAME, response.data.accessToken);
@@ -46,7 +44,6 @@ function* workerUserRegister(user) {
         }
 
         const testToken = yield call(checkToken, `${apiConfig.apiGateway.server1}/auth`);
-        console.log(testToken);
 
         if (testToken.data.success) {
             yield put(actions.createUser.createUserSuccess(testToken.data));
