@@ -23,6 +23,7 @@ const Button = forwardRef(
             rightIcon,
             navMobile,
             btnCollections,
+            count,
             className,
 
             ...passProps
@@ -67,6 +68,7 @@ const Button = forwardRef(
                     rounded,
                     btnCollections,
                     navMobile,
+                    count,
                 })}
                 {...props}>
                 {leftIcon && <span className={cx('iconNavItem')}>{leftIcon}</span>}

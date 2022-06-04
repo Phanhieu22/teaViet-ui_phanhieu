@@ -104,3 +104,35 @@ html *::-webkit-scrollbar-track {
     font-size: 0.9em !important;
     color: red !important;
 }
+.MuiBreadcrumbs-li {
+    font-size: 1.3em !important;
+    color: #376118 !important;
+    font-weight: 600 !important;
+}
+.css-1wuw8dw-MuiBreadcrumbs-separator {
+    font-size: 20px !important;
+}
+// tab product
+
+.css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected {
+    color: black !important;
+    font-size: 1.5rem !important;
+}
+.css-1h9z7r5-MuiButtonBase-root-MuiTab-root {
+    color: black !important;
+    font-size: 1.5rem !important;
+}
+@media (max-width: 687px) {
+    .css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected {
+        color: black !important;
+        font-size: 1rem !important;
+    }
+    .css-1h9z7r5-MuiButtonBase-root-MuiTab-root {
+        color: black !important;
+        font-size: 1rem !important;
+    }
+}
+
+.css-ahj2mt-MuiTypography-root {
+    font-size: 1em !important;
+}

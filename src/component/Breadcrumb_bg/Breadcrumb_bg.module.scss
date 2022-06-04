@@ -1,0 +1,20 @@
+.breadcrumb_background {
+    position: relative;
+    height: 197px;
+    width: 100%;
+    margin-bottom: 40px;
+    background-image: url('https://theme.hstatic.net/200000354189/1000743772/14/bg_pro.jpg?v=191');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .breadcrumb {
+        text-align: center;
+        h3 {
+            font-size: 1.5em;
+            font-weight: 600;
+        }
+    }
+}

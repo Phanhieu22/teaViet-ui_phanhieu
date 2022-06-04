@@ -1,0 +1,30 @@
+.filterWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2em 0;
+    padding: 0.5em 0.4em;
+    border: 1px var(--primary) solid;
+    .filter {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        .titleFilter {
+            padding-right: 18px;
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .filterWrapper {
+        text-align: center;
+        .filter {
+            display: flex;
+            align-items: center;
+            justify-content: center !important;
+            .titleFilter {
+                padding-right: 18px;
+            }
+        }
+    }
+}

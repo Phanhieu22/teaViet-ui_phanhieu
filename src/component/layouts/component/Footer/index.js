@@ -19,7 +19,7 @@ import SelectButton from '~/component/SelectButton';
 const cx = classnames.bind(styles);
 const configMenuFooter = [
     {
-        title: 'Loaị trà',
+        title: 'Loại trà',
         children: [
             {
                 nameItem: 'Trà xanh matcha',

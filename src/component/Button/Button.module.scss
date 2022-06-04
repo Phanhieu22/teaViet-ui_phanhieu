@@ -88,6 +88,14 @@
     padding: 0 !important;
     min-width: 40px;
 }
+.count {
+    min-width: 30px !important;
+    color: black !important;
+    border-radius: 999px !important;
+    border: 1px var(--primary) solid;
+    padding: 5px;
+    margin: 0;
+}
 .btnCollections {
     border-radius: 5px;
     height: 45px;

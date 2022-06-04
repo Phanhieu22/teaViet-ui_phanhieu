@@ -6,8 +6,9 @@ import Login from '../component/pages/auth/Login';
 import Register from '../component/pages/auth/Register';
 import Blog from '../component/pages/Blog';
 import Home from '../component/pages/home';
-import Product from '../component/pages/product';
+import ProductsPage from '../component/pages/ProductsPage';
 import Profile from '../component/pages/Profile';
+import CollectionsPage from '~/component/pages/CollectionsPage';
 const configNavBar = [
     {
         icon: null,
@@ -93,7 +94,6 @@ const configNavBar = [
     },
 ];
 
-
 const configCart = {
     icon: <FontAwesomeIcon icon={faCartPlus} />,
     children: {
@@ -141,12 +141,16 @@ const configLanguage = {
 
 const publicRoute = [
     { path: '/', component: Home },
-    { path: '/product', component: Product },
+    { path: '/collections', component: CollectionsPage },
+
+    { path: '/products', component: ProductsPage },
+
     {
         path: '/blog',
         component: Blog,
         layout: BlogLayout,
     },
+
     {
         path: '/login',
         component: Login,
@@ -161,12 +165,4 @@ const publicRoute = [
     },
 ];
 const privateRoute = [];
-export {
-    configNavBar,
-
-    configCart,
-    configLanguage,
-    publicRoute,
-    privateRoute,
-};
-
+export { configNavBar, configCart, configLanguage, publicRoute, privateRoute };

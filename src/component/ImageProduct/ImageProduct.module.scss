@@ -1,0 +1,13 @@
+.wrapper {
+    font-size: 1.6rem;
+    .productImage {
+        width: 100%;
+    }
+    .thumbnailWrapper {
+        .thumbnail {
+            width: 7em;
+
+            border: #e1e1e1 solid 1px;
+        }
+    }
+}
