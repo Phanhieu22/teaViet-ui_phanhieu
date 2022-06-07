@@ -3,7 +3,7 @@ import Checkbox from '@mui/material/Checkbox';
 import classnames from 'classnames/bind';
 import { FastField, Form, Formik } from 'formik';
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import * as Yup from 'yup';
 import login from '~/assets/images/login.jpg';
 import Button from '~/component/Button';
@@ -13,10 +13,12 @@ import iconTwitter from '../../../../assets/iconTwitter.png';
 import InputField from '../../../InputField';
 import { createUser } from '~/redux/auth/action';
 import styles from './register.module.scss';
+import { selectorAuthState } from '~/redux/auth/selector';
 
 const cx = classnames.bind(styles);
 function Register() {
     const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+    const isLoading = useSelector(selectorAuthState);
 
     const initialValue = { email: '', password: '' };
     const dispatch = useDispatch();
@@ -69,19 +71,22 @@ function Register() {
                                     </div>
                                     <Box>
                                         {' '}
-                                        <Button className={cx('submit')} type="submit">
+                                        <Button
+                                            isLoading={isLoading.authLoading}
+                                            className={cx('submit')}
+                                            type="submit">
                                             Đăng ký
                                         </Button>
                                     </Box>
                                     <span className={cx('toRegister')}>
                                         bạn đã có tài khoản vui lòng đăng nhập
-                                        <Button to="/login" className={cx('customBtnForgotPass')}>
+                                        <Button to="/login" className={cx('customBtnHere')}>
                                             tại đây
                                         </Button>
                                     </span>
                                 </Form>
                                 <Box>
-                                    <p>----------or login with-----------</p>
+                                    <p>----------Hoặc đăng ký với----------</p>
                                     <Box className={cx('containerIcon')}>
                                         <Box className={cx('icon')}>
                                             <img src={iconFacebook} alt="icon contact facebook" />

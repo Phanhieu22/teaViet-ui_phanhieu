@@ -1,11 +1,12 @@
 import { faGear } from '@fortawesome/free-solid-svg-icons';
-import { SearchIcon } from '~/component/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Button from '~/component/Button';
-import styles from './CardproductItem.module.scss';
 import Tippy from '@tippyjs/react';
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
+import Button from '~/component/Button';
+import { SearchIcon } from '~/component/icons';
+import MenuAdmin from '../layouts/component/Popper/menuAdmin';
+import styles from './CardproductItem.module.scss';
 const cx = classNames.bind(styles);
 
 function CardProductItem({ item, onClick, className, setting, guide, search, ...passProps }) {
@@ -15,12 +16,12 @@ function CardProductItem({ item, onClick, className, setting, guide, search, ...
         ...passProps,
     };
     return (
-        <Link to={item.to}>
+        <Link to={`/products/${item.slug}`}>
             <div {...props} className={cx('wrapper', { guide })}>
                 <img className={cx('image')} src={item.thumbnail} />
                 <div className={cx('wrapperContent')}>
                     <div className={cx('nameItem')}>
-                        <h5>{item.nameItem}</h5>
+                        <h5>{item.nameProduct}</h5>
                     </div>
                     {guide ? (
                         <Button className={cx('contact')} text>
@@ -36,11 +37,11 @@ function CardProductItem({ item, onClick, className, setting, guide, search, ...
                 <div className={cx('layer')}>
                     <div className={cx('buttonWrapper')}>
                         {setting && (
-                            <Tippy placement="bottom" content="Cài đặt">
+                            <MenuAdmin item={item}>
                                 <Button outline rounded className={cx('customBtn')} icon>
                                     <FontAwesomeIcon icon={faGear} />
                                 </Button>
-                            </Tippy>
+                            </MenuAdmin>
                         )}
                         {search && (
                             <Tippy placement="bottom" content="Xem nhanh">

@@ -23,11 +23,20 @@
         cursor: default;
         opacity: 0.5;
     }
+  
 }
 
 .title {
     font-weight: 500px;
     text-align: center;
+    display: flex;
+    flex-basis: auto;
+    align-items: center;
+    .IconLoading {
+        padding-top: 4px;
+        font-size: 1em;
+        margin-right: 12px;
+    }
 }
 .iconNavItem {
     width: 24px;
@@ -95,6 +104,9 @@
     border: 1px var(--primary) solid;
     padding: 5px;
     margin: 0;
+}
+.isLoading {
+    background-color: rgba(145, 173, 65, 1.2) !important;
 }
 .btnCollections {
     border-radius: 5px;

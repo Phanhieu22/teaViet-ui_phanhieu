@@ -8,7 +8,7 @@
     }
     .form {
         background-color: #fff;
-        width: 30em;
+        width: 27em;
         max-height: 31em;
         border-radius: 20px;
         text-align: center;
@@ -61,6 +61,18 @@
         text-decoration: underline;
     }
 }
+.customBtnHere {
+    font-size: 1em;
+    padding: 0 !important;
+    margin: 0 0 0 0.3em !important;
+    color: var(--primary) !important;
+    min-width: 30px;
+    text-decoration: underline !important;
+    justify-content: left;
+    &:hover {
+        text-decoration: underline;
+    }
+}
 .headerForm {
 }
 .text-transform-none {
@@ -79,9 +91,14 @@
     margin-left: 2rem;
 }
 .submit {
-    width: 80%;
+    width: 90%;
     margin: 0.5rem 0 !important;
-    background-color: #3a98b4;
+    background-color: var(--matcha-green);
+    height: 3em;
+    color: white;
+    .title {
+        font-weight: 600 !important;
+    }
 }
 .errorMessage {
     text-align: left;
@@ -112,4 +129,5 @@
 .toRegister {
     text-align: center;
     line-height: 3em;
+    margin-left: 1%;
 }

@@ -2,6 +2,7 @@ import classnames from 'classnames/bind';
 import style from './Button.module.scss';
 import { Link } from 'react-router-dom';
 import { forwardRef } from 'react';
+import { CircularProgress } from '@mui/material';
 const cx = classnames.bind(style);
 
 const Button = forwardRef(
@@ -24,6 +25,7 @@ const Button = forwardRef(
             navMobile,
             btnCollections,
             count,
+            isLoading = false,
             className,
 
             ...passProps
@@ -69,10 +71,19 @@ const Button = forwardRef(
                     btnCollections,
                     navMobile,
                     count,
+                    isLoading,
                 })}
                 {...props}>
                 {leftIcon && <span className={cx('iconNavItem')}>{leftIcon}</span>}
-                <span className={cx('title')}>{children}</span>
+                <span className={cx('title')}>
+                    {' '}
+                    {isLoading && (
+                        <div className={cx('IconLoading')}>
+                            <CircularProgress size="1em" color="success" />
+                        </div>
+                    )}
+                    <div>{children}</div>
+                </span>
                 {rightIcon && <span className={cx('iconNavItem')}>{rightIcon}</span>}
             </Comp>
         );

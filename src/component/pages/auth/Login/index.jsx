@@ -12,6 +12,8 @@ import iconGoogle from '../../../../assets/iconGoogle.png';
 import iconTwitter from '../../../../assets/iconTwitter.png';
 import { loginUser } from '../../../../redux/auth/action';
 import InputField from '../../../InputField';
+import { useSelector } from 'react-redux';
+import { selectorAuthState } from '~/redux/auth/selector';
 import styles from './login.module.scss';
 
 const cx = classnames.bind(styles);
@@ -20,6 +22,7 @@ function Login() {
 
     const initialValue = { email: '', password: '' };
     const dispatch = useDispatch();
+    const isLoading = useSelector(selectorAuthState);
 
     return (
         <>
@@ -70,19 +73,22 @@ function Login() {
                                     </div>
                                     <Box>
                                         {' '}
-                                        <Button className={cx('submit')} type="submit">
+                                        <Button
+                                            isLoading={isLoading.authLoading}
+                                            className={cx('submit')}
+                                            type="submit">
                                             Đăng nhập
                                         </Button>
                                     </Box>
                                     <span className={cx('toRegister')}>
                                         bạn chưa có tài khoản vui lòng đăng ký
-                                        <Button to="/register" className={cx('customBtnForgotPass')}>
+                                        <Button to="/register" className={cx('customBtnHere')}>
                                             tại đây
                                         </Button>
                                     </span>
                                 </Form>
                                 <Box>
-                                    <p>----------or login with-----------</p>
+                                    <p>----------Hoặc đăng nhập với----------</p>
                                     <Box className={cx('containerIcon')}>
                                         <Box className={cx('icon')}>
                                             <img src={iconFacebook} alt="icon contact facebook" />

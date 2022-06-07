@@ -11,7 +11,7 @@ function Guide() {
             id: '1',
             thumbnail:
                 'https://product.hstatic.net/200000354189/product/nhan_chai_500ml_-_tra_chanh_mo_muoi_cce5d2b68c2a48cb875eb068cf00bf5f_large.jpg',
-            nameItem: 'Trà chanh mơ muối nhật bản',
+            nameProduct: 'Trà chanh mơ muối nhật bản',
             contact: '/contact',
             to: 'detailGuide',
         },
@@ -19,7 +19,7 @@ function Guide() {
             id: '2',
             thumbnail:
                 'https://product.hstatic.net/200000354189/product/nhan_chai_500ml_-_sencha_genmai_d4d5c3f6bbf543329429b11e0bafeef7_large.jpg',
-            nameItem: 'Trà chanh mơ muối nhật bản',
+            nameProduct: 'Trà chanh mơ muối nhật bản',
             contact: '/contact',
             to: 'detailGuide',
         },
@@ -28,7 +28,7 @@ function Guide() {
             id: '3',
             thumbnail:
                 'https://product.hstatic.net/200000354189/product/nhan_chai_500ml_-_sencha_genmai_d4d5c3f6bbf543329429b11e0bafeef7_large.jpg',
-            nameItem: 'Trà sữa Gạo Rang Sencha nhật bản',
+            nameProduct: 'Trà sữa Gạo Rang Sencha nhật bản',
             contact: '/contact',
             to: 'detailGuide',
         },
@@ -36,7 +36,7 @@ function Guide() {
             id: '4',
             thumbnail:
                 'https://product.hstatic.net/200000354189/product/nhan_chai_500ml_-_sencha_genmai_d4d5c3f6bbf543329429b11e0bafeef7_large.jpg',
-            nameItem: 'Trà chanh mơ muối nhật bản',
+            nameProduct: 'Trà chanh mơ muối nhật bản',
             contact: '/contact',
             to: 'detailGuide',
         },

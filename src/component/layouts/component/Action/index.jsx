@@ -9,7 +9,7 @@ import MenuListItemLanguage from '~/component/layouts/component/Popper/menuListI
 import { logoutUser } from '~/redux/auth/action';
 import { selectorAuthState } from '~/redux/auth/selector';
 import { configCart, configLanguage } from '~/router';
-import MenuSearch from '../Popper/MenuAccount';
+import MenuAccount from '../Popper/MenuAccount';
 import PopperSearch from '../Popper/PopperSearch';
 import Search from '../Search';
 import styles from './Action.module.scss';
@@ -33,9 +33,13 @@ function Action() {
                     to: '/account',
                     title: 'Tài khoản',
                 },
-
                 {
                     id: '2',
+                    to: '/register',
+                    title: 'Đăng ký',
+                },
+                {
+                    id: '3',
                     to: '/login',
                     title: 'Đăng nhập',
                 },
@@ -67,19 +71,16 @@ function Action() {
             ],
         },
     };
-  
 
     return (
         <div className={cx('wrapper')}>
-        
-
             <div className={cx('searchIcon')}>
                 <PopperSearch items={configSearch}> {configSearch.icon}</PopperSearch>
             </div>
             <div className={cx('iconAvatar')}>
-                <MenuSearch items={!!auth.user ? configFeatureAccountLogin : configFeatureAccountNotLogin}>
+                <MenuAccount items={!!auth.user ? configFeatureAccountLogin : configFeatureAccountNotLogin}>
                     {configFeatureAccountLogin.avatar}
-                </MenuSearch>
+                </MenuAccount>
             </div>
             <div className={cx('iconCart')}>
                 {' '}

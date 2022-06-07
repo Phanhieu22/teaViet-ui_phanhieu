@@ -1,5 +1,5 @@
 @import 'normalize.css';
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,400;0,500;0,600;0,700;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,400;0,500;0,600;0,700;1,600&family=Nuosu+SIL&display=swap');
 :root {
     --primary: #91ad41;
     --border-radius: 23px;
@@ -136,3 +136,15 @@ html *::-webkit-scrollbar-track {
 .css-ahj2mt-MuiTypography-root {
     font-size: 1em !important;
 }
+
+.css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root.Mui-checked {
+    color: var(--primary) !important;
+}
+
+//
+// .MuiTypography-root {
+//     color: white !important;
+// }
+// .MuiSvgIcon-root {
+//     color: white !important;
+// }

@@ -43,10 +43,10 @@ function* workerUserRegister(user) {
             setAuthToken(localStorage[LOCAL_STOGARE_TOKEN_NAME]);
         }
 
-        const testToken = yield call(checkToken, `${apiConfig.apiGateway.server1}/auth`);
+        const dataGood = yield call(checkToken, `${apiConfig.apiGateway.server1}/auth`);
 
-        if (testToken.data.success) {
-            yield put(actions.createUser.createUserSuccess(testToken.data));
+        if (dataGood.data.success) {
+            yield put(actions.createUser.createUserSuccess(dataGood.data));
             History.push('/');
         } else {
             setAuthToken(null);

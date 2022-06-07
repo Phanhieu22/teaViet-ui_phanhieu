@@ -13,144 +13,144 @@ function Product() {
     const [widthScreen, setWidthScreen] = useState(0);
     const data = [
         {
-            nameItems: 'Trà xanh matcha',
+            nameProducts: 'Trà xanh matcha',
             items: [
                 {
                     thumbnail:
                         'https://product.hstatic.net/200000354189/product/jasmine_matcha_100g_0ce946dbe9ff4e99b1ee141c6131be92.jpg',
-                    nameItem: 'Trà xanh Matcha hương Nhài 100g',
+                    nameProduct: 'Trà xanh Matcha hương Nhài 100g',
                     price: 125000,
                     to: '/detailItem',
                 },
                 {
                     thumbnail:
                         'https://product.hstatic.net/200000354189/product/jasmine_matcha_100g_0ce946dbe9ff4e99b1ee141c6131be92.jpg',
-                    nameItem: 'Trà xanh Matcha hương Nhài 100g',
+                    nameProduct: 'Trà xanh Matcha hương Nhài 100g',
                     price: 125000,
                     to: '/detailItem',
                 },
                 {
                     thumbnail:
                         'https://product.hstatic.net/200000354189/product/jasmine_matcha_100g_0ce946dbe9ff4e99b1ee141c6131be92.jpg',
-                    nameItem: 'Trà xanh Matcha hương Nhài 100g',
+                    nameProduct: 'Trà xanh Matcha hương Nhài 100g',
                     price: 125000,
                     to: '/detailItem',
                 },
                 {
                     thumbnail:
                         'https://product.hstatic.net/200000354189/product/jasmine_matcha_100g_0ce946dbe9ff4e99b1ee141c6131be92.jpg',
-                    nameItem: 'Trà xanh Matcha hương Nhài 100g',
+                    nameProduct: 'Trà xanh Matcha hương Nhài 100g',
                     price: 125000,
                     to: '/detailItem',
                 },
                 {
                     thumbnail:
                         'https://product.hstatic.net/200000354189/product/jasmine_matcha_100g_0ce946dbe9ff4e99b1ee141c6131be92.jpg',
-                    nameItem: 'Trà xanh Matcha hương Nhài 100g',
+                    nameProduct: 'Trà xanh Matcha hương Nhài 100g',
                     price: 125000,
                     to: '/detailItem',
                 },
             ],
         },
         {
-            nameItems: 'Trà xanh sencha',
+            nameProducts: 'Trà xanh sencha',
             items: [
                 {
                     thumbnail:
                         'https://product.hstatic.net/200000354189/product/jasmine_matcha_100g_0ce946dbe9ff4e99b1ee141c6131be92.jpg',
-                    nameItem: 'Trà xanh Matcha hương Nhài 100g',
+                    nameProduct: 'Trà xanh Matcha hương Nhài 100g',
                     price: 125000,
                     to: '/detailItem',
                 },
                 {
                     thumbnail:
                         'https://product.hstatic.net/200000354189/product/jasmine_matcha_100g_0ce946dbe9ff4e99b1ee141c6131be92.jpg',
-                    nameItem: 'Trà xanh Matcha hương Nhài 100g',
+                    nameProduct: 'Trà xanh Matcha hương Nhài 100g',
                     price: 125000,
                     to: '/detailItem',
                 },
                 {
                     thumbnail:
                         'https://product.hstatic.net/200000354189/product/jasmine_matcha_100g_0ce946dbe9ff4e99b1ee141c6131be92.jpg',
-                    nameItem: 'Trà xanh Matcha hương Nhài 100g',
+                    nameProduct: 'Trà xanh Matcha hương Nhài 100g',
                     price: 125000,
                     to: '/detailItem',
                 },
             ],
         },
         {
-            nameItems: 'Trà xanh Komachi',
+            nameProducts: 'Trà xanh Komachi',
             items: [
                 {
                     thumbnail:
                         'https://product.hstatic.net/200000354189/product/jasmine_matcha_100g_0ce946dbe9ff4e99b1ee141c6131be92.jpg',
-                    nameItem: 'Trà xanh Matcha hương Nhài 100g',
+                    nameProduct: 'Trà xanh Matcha hương Nhài 100g',
                     price: 125000,
                     to: '/detailItem',
                 },
                 {
                     thumbnail:
                         'https://product.hstatic.net/200000354189/product/jasmine_matcha_100g_0ce946dbe9ff4e99b1ee141c6131be92.jpg',
-                    nameItem: 'Trà xanh Matcha hương Nhài 100g',
+                    nameProduct: 'Trà xanh Matcha hương Nhài 100g',
                     price: 125000,
                     to: '/detailItem',
                 },
                 {
                     thumbnail:
                         'https://product.hstatic.net/200000354189/product/jasmine_matcha_100g_0ce946dbe9ff4e99b1ee141c6131be92.jpg',
-                    nameItem: 'Trà xanh Matcha hương Nhài 100g',
+                    nameProduct: 'Trà xanh Matcha hương Nhài 100g',
                     price: 125000,
                     to: '/detailItem',
                 },
             ],
         },
         {
-            nameItems: 'Trà xanh Houijcha',
+            nameProducts: 'Trà xanh Houijcha',
             items: [
                 {
                     thumbnail:
                         'https://product.hstatic.net/200000354189/product/jasmine_matcha_100g_0ce946dbe9ff4e99b1ee141c6131be92.jpg',
-                    nameItem: 'Trà xanh Matcha hương Nhài 100g',
+                    nameProduct: 'Trà xanh Matcha hương Nhài 100g',
                     price: 125000,
                     to: '/detailItem',
                 },
                 {
                     thumbnail:
                         'https://product.hstatic.net/200000354189/product/jasmine_matcha_100g_0ce946dbe9ff4e99b1ee141c6131be92.jpg',
-                    nameItem: 'Trà xanh Matcha hương Nhài 100g',
+                    nameProduct: 'Trà xanh Matcha hương Nhài 100g',
                     price: 125000,
                     to: '/detailItem',
                 },
                 {
                     thumbnail:
                         'https://product.hstatic.net/200000354189/product/jasmine_matcha_100g_0ce946dbe9ff4e99b1ee141c6131be92.jpg',
-                    nameItem: 'Trà xanh Matcha hương Nhài 100g',
+                    nameProduct: 'Trà xanh Matcha hương Nhài 100g',
                     price: 125000,
                     to: '/detailItem',
                 },
             ],
         },
         {
-            nameItems: 'Trà xanh Genmaicha',
+            nameProducts: 'Trà xanh Genmaicha',
             items: [
                 {
                     thumbnail:
                         'https://product.hstatic.net/200000354189/product/jasmine_matcha_100g_0ce946dbe9ff4e99b1ee141c6131be92.jpg',
-                    nameItem: 'Trà xanh Matcha hương Nhài 100g',
+                    nameProduct: 'Trà xanh Matcha hương Nhài 100g',
                     price: 125000,
                     to: '/detailItem',
                 },
                 {
                     thumbnail:
                         'https://product.hstatic.net/200000354189/product/jasmine_matcha_100g_0ce946dbe9ff4e99b1ee141c6131be92.jpg',
-                    nameItem: 'Trà xanh Matcha hương Nhài 100g',
+                    nameProduct: 'Trà xanh Matcha hương Nhài 100g',
                     price: 125000,
                     to: '/detailItem',
                 },
                 {
                     thumbnail:
                         'https://product.hstatic.net/200000354189/product/jasmine_matcha_100g_0ce946dbe9ff4e99b1ee141c6131be92.jpg',
-                    nameItem: 'Trà xanh Matcha hương Nhài 100g',
+                    nameProduct: 'Trà xanh Matcha hương Nhài 100g',
                     price: 125000,
                     to: '/detailItem',
                 },
@@ -208,11 +208,11 @@ function Product() {
                                         onClick={() => handleSetItemsActive(items)}
                                         className={cx(
                                             'customBtn',
-                                            productItemActive.nameItems === items.nameItems ? 'active' : ''
+                                            productItemActive.nameProducts === items.nameProducts ? 'active' : ''
                                         )}
                                         rounded
                                         outline>
-                                        {items.nameItems}
+                                        {items.nameProducts}
                                     </Button>
                                 </li>
                             ))}
@@ -229,9 +229,11 @@ function Product() {
                                             onClick={() => handleSetItemsActive(items)}
                                             className={cx(
                                                 'customBtn',
-                                                productItemActive.nameItems === items.nameItems ? 'activeMobile' : ''
+                                                productItemActive.nameProducts === items.nameProducts
+                                                    ? 'activeMobile'
+                                                    : ''
                                             )}>
-                                            {items.nameItems}
+                                            {items.nameProducts}
                                         </Button>
                                     </li>
                                 ))}

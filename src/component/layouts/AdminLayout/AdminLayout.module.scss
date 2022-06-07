@@ -1,0 +1,38 @@
+.wrapperNav {
+    background-color: var(--primary);
+    height: 100vh;
+    .customBtn {
+        background-color: var(--primary);
+        max-height: 4em;
+        font-size: 1.1em !important;
+        color: white !important;
+        width: 100%;
+        justify-content: flex-start;
+        margin: 0 !important;
+        text-align: left;
+        span {
+            text-align: left;
+            text-align: left !important;
+            padding-top: 1em;
+        }
+    }
+}
+.breadcrumb_background {
+    position: relative;
+    height: 197px;
+    width: 100%;
+    margin-bottom: 40px;
+    background-image: url('https://www.quoteslyfe.com/images/collection1/quotations281/Great-companies-are-built-on-great-products-281453.jpg');
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h2 {
+        max-width: 800px;
+        text-align: center;
+        font-family: 'Nuosu SIL', serif;
+        font-size: 2em;
+    }
+}

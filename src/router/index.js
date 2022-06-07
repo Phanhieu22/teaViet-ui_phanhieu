@@ -8,7 +8,9 @@ import Blog from '../component/pages/Blog';
 import Home from '../component/pages/home';
 import ProductsPage from '../component/pages/ProductsPage';
 import Profile from '../component/pages/Profile';
+import CreateProduct from '~/component/adminPages/CreateProduct';
 import CollectionsPage from '~/component/pages/CollectionsPage';
+import AdminLayout from '~/component/layouts/AdminLayout';
 const configNavBar = [
     {
         icon: null,
@@ -23,17 +25,19 @@ const configNavBar = [
             data: [
                 {
                     id: '1',
-                    to: '/product',
+                    to: '/collections/tra-xanh-matcha',
                     title: 'trà xanh matcha',
                 },
                 {
                     id: '2',
-                    to: '/product2',
+                    to: '/collections/tra-xanh-sencha',
+
                     title: 'trà xanh sencha',
                 },
                 {
                     id: '3',
-                    to: '/product2',
+                    to: '/collections/tra-xanh-komachi',
+
                     title: 'trà xanh komachi',
                 },
             ],
@@ -93,7 +97,61 @@ const configNavBar = [
         to: '/contact',
     },
 ];
-
+const configAdminNav = [
+    {
+        icon: <FontAwesomeIcon icon="fa-solid fa-caret-down" />,
+        title: 'Sản phẩm',
+        children: {
+            title: 'product',
+            data: [
+                {
+                    id: '1',
+                    to: '/admin/createProduct',
+                    title: 'tạo sản phẩm',
+                },
+                {
+                    id: '2',
+                    to: '/admin/allProduct',
+                    title: 'tất cả các sản phẩm',
+                },
+                {
+                    id: '3',
+                    to: '/admin/business',
+                    title: 'Tình hình kinh doanh',
+                },
+            ],
+        },
+    },
+    {
+        icon: <FontAwesomeIcon icon="fa-solid fa-caret-down" />,
+        title: 'Khách hàng',
+        children: {
+            title: 'user',
+            data: [
+                {
+                    id: '1',
+                    to: '/admin/allUser',
+                    title: 'tất cả khách hàng',
+                },
+                {
+                    id: '2',
+                    to: '/admin/user',
+                    title: 'khách hàng bán buôn',
+                },
+                {
+                    id: '3',
+                    to: '/admin/business',
+                    title: 'khách hàng bán lẻ',
+                },
+                {
+                    id: '3',
+                    to: '/admin/business',
+                    title: 'chăm sóc khách hàng',
+                },
+            ],
+        },
+    },
+];
 const configCart = {
     icon: <FontAwesomeIcon icon={faCartPlus} />,
     children: {
@@ -141,9 +199,9 @@ const configLanguage = {
 
 const publicRoute = [
     { path: '/', component: Home },
-    { path: '/collections', component: CollectionsPage },
+    { path: '/collections/:productPortfolio', component: CollectionsPage },
 
-    { path: '/products', component: ProductsPage },
+    { path: '/products/:slug', component: ProductsPage },
 
     {
         path: '/blog',
@@ -163,6 +221,15 @@ const publicRoute = [
         path: '/profile',
         component: Profile,
     },
+    {
+        path: '/admin/createProduct',
+        component: CreateProduct,
+        layout: AdminLayout,
+    },
+    {
+        path: '/admin',
+        component: CreateProduct,
+    },
 ];
 const privateRoute = [];
-export { configNavBar, configCart, configLanguage, publicRoute, privateRoute };
+export { configNavBar, configCart, configLanguage, publicRoute, privateRoute, configAdminNav };
