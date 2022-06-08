@@ -7,34 +7,28 @@ import Button from '~/component/Button';
 import InputField2 from '~/component/InputField2';
 import styles from './EditProduct.module.scss';
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import * as actions from '~/redux/collections/actions';
 const cx = classnames.bind(styles);
+
 import { useEffect } from 'react';
+import { selectObjectEditing } from '~/redux/product/selector';
+import { editProduct } from '~/redux/collections/actions';
+import { useParams } from 'react-router-dom';
 
 function EditProduct() {
-    const dispatch = useDispatch();
-    const [product, setProduct] = useState({
-        nameProduct: '',
-        trademark: '',
-        productPortfolio: '',
-        status: '',
-        price: 0,
-        thumbnail: '',
-    });
+    const [product, setProduct] = useState(useSelector(selectObjectEditing));
 
+    const dispatch = useDispatch();
+    const { slug } = useParams();
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(product);
-        dispatch(actions.postAProduct.postAProductRequest(product));
+        dispatch(editProduct.editProductRequest({ slug: slug, product: product }));
     };
     const handleChange = (event) => {
         setProduct({ ...product, [event.target.name]: event.target.value });
     };
 
-    useEffect(()=>{
-        
-    })
     return (
         <div className={cx('wrapper')}>
             <Container>
@@ -44,11 +38,12 @@ function EditProduct() {
                             <div className={cx('inputField')}>
                                 <h5>Tên sản phẩm</h5>
                                 <InputField2
-                                    valueInput={product.nameProduct}
+                                    valueInput={product?.nameProduct}
                                     handelChangeInput={handleChange}
                                     name="nameProduct"
                                     placeholder="Tên sản phẩm"
                                     width={500}
+                                    readOnly={true}
                                 />
                             </div>
                         </Grid>
@@ -56,7 +51,7 @@ function EditProduct() {
                             <div className={cx('inputField')}>
                                 <h5>Thương hiệu</h5>
                                 <InputField2
-                                    valueInput={product.tradeMark}
+                                    valueInput={product?.trademark}
                                     handelChangeInput={handleChange}
                                     name="trademark"
                                     placeholder={'thương hiệu'}
@@ -68,7 +63,7 @@ function EditProduct() {
                             <div className={cx('inputField')}>
                                 <h5>loại sản phẩm</h5>
                                 <InputField2
-                                    valueInput={product.productPortfolio}
+                                    valueInput={product?.productPortfolio}
                                     handelChangeInput={handleChange}
                                     name="productPortfolio"
                                     placeholder="Vd : Trà xanh matcha"
@@ -80,7 +75,7 @@ function EditProduct() {
                             <div className={cx('inputField')}>
                                 <h5>Trạng Thái </h5>
                                 <InputField2
-                                    valueInput={product.status}
+                                    valueInput={product?.status}
                                     handelChangeInput={handleChange}
                                     name="status"
                                     placeholder="Trạng Thái"
@@ -92,7 +87,7 @@ function EditProduct() {
                             <div className={cx('inputField')}>
                                 <h5>Giá bán</h5>
                                 <InputField2
-                                    valueInput={product.price}
+                                    valueInput={product?.price}
                                     handelChangeInput={handleChange}
                                     name="price"
                                     type="number"
@@ -108,7 +103,7 @@ function EditProduct() {
                                     accept="image/*"
                                     multiple={false}
                                     type="file"
-                                    value={product.thumbnail}
+                                    value={product?.thumbnail}
                                     onDone={({ base64 }) => setProduct({ ...product, thumbnail: base64 })}
                                 />
                             </div>

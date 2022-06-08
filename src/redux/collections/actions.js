@@ -12,7 +12,18 @@ const getAllCollections = createActions({
     getAllCollectionsFailure: (error) => error,
 });
 
+const editProduct = createActions({
+    editProductRequest: (payload) => payload,
+    editProductSuccess: (payload) => payload,
+    editProductFailure: (error) => error,
+});
+const deleteProduct = createActions({
+    deleteProductRequest: (payload) => payload,
+    deleteProductSuccess: (payload) => payload,
+    deleteProductFailure: (error) => error,
+});
+
 const getTypeAction = (reduxActions) => {
     return reduxActions().type;
 };
-export { postAProduct, getTypeAction, getAllCollections };
+export { postAProduct, getTypeAction, getAllCollections, editProduct,deleteProduct };

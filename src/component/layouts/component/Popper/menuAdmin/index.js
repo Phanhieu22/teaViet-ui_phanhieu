@@ -4,9 +4,26 @@ import { forwardRef } from 'react';
 import Button from '~/component/Button';
 import { Wrapper as WrapperPopper } from '~/component/layouts/component/Popper';
 import styles from './MenuAdmin.module.scss';
-import MenuItem from './MenuItems';
+import { useDispatch } from 'react-redux';
+import { editProduct } from '~/redux/product/actions';
+import { deleteProduct } from '~/redux/collections/actions';
+
 const cx = classnames.bind(styles);
 const MenuAdmin = forwardRef(({ children, onChange, item }, ref) => {
+    const dispatch = useDispatch();
+    const handlePushDataToRedux = (e) => {
+        console.log('click');
+
+        dispatch(editProduct.pushDataProductToReducer(item));
+    };
+    const handleDel = () => {
+        var answer = window.confirm(`bạn có chắc chắn muốn xoá sản phẩm ${item.nameProduct} không ?`);
+        if (answer) {
+            dispatch(deleteProduct.deleteProductRequest(item?._id));
+            
+        } else {
+        }
+    };
     return (
         <div ref={ref} className={cx('menu')}>
             <Tippy
@@ -16,11 +33,20 @@ const MenuAdmin = forwardRef(({ children, onChange, item }, ref) => {
                 render={(attrs) => (
                     <div className="box" tabIndex="-1" {...attrs}>
                         <WrapperPopper className={cx('customWrapper')}>
-                            <div className={cx('menuItems')}>
-                                <Button to={`/admin/edit/${item.slug}`} className={cx('menu-item')}>
+                            <div
+                                className={cx('menuItems')}
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                }}>
+                                <Button
+                                    to={`/admin/edit/${item.slug}`}
+                                    onClick={handlePushDataToRedux}
+                                    className={cx('menu-item')}>
                                     Chỉnh sửa{' '}
                                 </Button>{' '}
-                                <Button className={cx('menu-item')}>Xoá </Button>{' '}
+                                <Button onClick={handleDel} className={cx('menu-item')}>
+                                    Xoá{' '}
+                                </Button>{' '}
                                 <Button className={cx('menu-item')}>Thêm chi tiết</Button>
                             </div>
                         </WrapperPopper>

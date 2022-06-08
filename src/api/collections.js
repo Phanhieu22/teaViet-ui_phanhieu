@@ -50,3 +50,38 @@ export const getOneProduct = async (url) => {
             return error;
         });
 };
+export const editProduct = async (url, product) => {
+    return axios
+        .put(url, product)
+        .then((response) => {
+            if (response.data.success) {
+                toast.success('chỉnh sửa sản phẩm thành công');
+                console.log(response);
+
+                return response.data;
+            } else {
+                toast.error('yêu cầu chỉnh sửa thất bại');
+            }
+        })
+        .catch((error) => {
+            console.log(error);
+            return error;
+        });
+};
+export const deleteProduct = async (url) => {
+    console.log(url);
+    return axios
+        .delete(url)
+        .then((response) => {
+            if (response.data.success) {
+                toast.success('xoá sản phẩm thành công');
+                return response.data;
+            } else {
+                toast.error('yêu cầu xoá thất bại');
+            }
+        })
+        .catch((error) => {
+            console.log(error);
+            return error;
+        });
+};
