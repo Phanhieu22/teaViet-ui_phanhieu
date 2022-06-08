@@ -11,6 +11,8 @@ import Profile from '../component/pages/Profile';
 import CreateProduct from '~/component/adminPages/CreateProduct';
 import CollectionsPage from '~/component/pages/CollectionsPage';
 import AdminLayout from '~/component/layouts/AdminLayout';
+import EditProduct from '~/component/adminPages/EditProduct';
+import AllProduct from '~/component/adminPages/AllProduct';
 const configNavBar = [
     {
         icon: null,
@@ -227,8 +229,19 @@ const publicRoute = [
         layout: AdminLayout,
     },
     {
-        path: '/admin',
-        component: CreateProduct,
+        path: '/admin/edit/:slug',
+        layout: AdminLayout,
+        component: EditProduct,
+    },
+    {
+        path: '/admin/edit',
+        layout: AdminLayout,
+        component: EditProduct,
+    },
+    {
+        path: '/admin/allProduct',
+        layout: AdminLayout,
+        component: AllProduct,
     },
 ];
 const privateRoute = [];

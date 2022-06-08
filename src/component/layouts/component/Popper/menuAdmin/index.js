@@ -6,7 +6,7 @@ import { Wrapper as WrapperPopper } from '~/component/layouts/component/Popper';
 import styles from './MenuAdmin.module.scss';
 import MenuItem from './MenuItems';
 const cx = classnames.bind(styles);
-const MenuAdmin = forwardRef(({ children, onChange }, ref) => {
+const MenuAdmin = forwardRef(({ children, onChange, item }, ref) => {
     return (
         <div ref={ref} className={cx('menu')}>
             <Tippy
@@ -17,7 +17,9 @@ const MenuAdmin = forwardRef(({ children, onChange }, ref) => {
                     <div className="box" tabIndex="-1" {...attrs}>
                         <WrapperPopper className={cx('customWrapper')}>
                             <div className={cx('menuItems')}>
-                                <Button className={cx('menu-item')}>Chỉnh sửa </Button>{' '}
+                                <Button to={`/admin/edit/${item.slug}`} className={cx('menu-item')}>
+                                    Chỉnh sửa{' '}
+                                </Button>{' '}
                                 <Button className={cx('menu-item')}>Xoá </Button>{' '}
                                 <Button className={cx('menu-item')}>Thêm chi tiết</Button>
                             </div>

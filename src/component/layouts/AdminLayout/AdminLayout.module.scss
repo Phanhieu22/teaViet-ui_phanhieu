@@ -1,6 +1,14 @@
 .wrapperNav {
     background-color: var(--primary);
     height: 100vh;
+    z-index: 999;
+
+    .nav {
+        position: fixed;
+        background-color: var(--primary);
+        width: 17%;
+        height: 100vh;
+    }
     .customBtn {
         background-color: var(--primary);
         max-height: 4em;
@@ -16,6 +24,8 @@
             padding-top: 1em;
         }
     }
+}
+.content {
 }
 .breadcrumb_background {
     position: relative;

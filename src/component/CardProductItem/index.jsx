@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import Button from '~/component/Button';
 import { SearchIcon } from '~/component/icons';
 import MenuAdmin from '../layouts/component/Popper/menuAdmin';
-import styles from './CardproductItem.module.scss';
+import styles from './CardProductItem.module.scss';
 const cx = classNames.bind(styles);
 
 function CardProductItem({ item, onClick, className, setting, guide, search, ...passProps }) {

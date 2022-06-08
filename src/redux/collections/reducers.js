@@ -22,7 +22,6 @@ const collections = (state = INIT_STATE, action) => {
 
         // get the corresponding data into the table
         case actions.getTypeAction(actions.getAllCollections.getAllCollectionsSuccess): {
-            console.log(payload);
             return { ...state, collections: payload, isLoading: false };
         }
         case actions.getTypeAction(actions.getAllCollections.getAllCollectionsFailure): {

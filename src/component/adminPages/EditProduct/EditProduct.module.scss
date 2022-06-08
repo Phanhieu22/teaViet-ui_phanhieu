@@ -1,0 +1,48 @@
+.wrapper {
+    .inputField {
+        margin-top: 0.5em;
+        h5 {
+            font-size: 1.2em;
+            padding-left: 5px;
+            padding-bottom: 5px;
+            font-weight: 500;
+        }
+    }
+}
+.title {
+    font-weight: 500;
+
+    text-align: center;
+    position: relative;
+    line-height: 1.4;
+
+    margin-top: 20px;
+    margin-bottom: 30px;
+    h2 {
+        font-size: 27px;
+        font-weight: 500;
+        &::before {
+            content: 'chi tiết sản phẩm';
+            user-select: none;
+            background: -webkit-linear-gradient(35deg, #91ad41 0%, #ff8a6c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        &::after {
+            content: '';
+            background-image: url(//theme.hstatic.net/200000354189/1000743772/14/bg_title.png?v=191);
+            background-repeat: no-repeat;
+            width: 69px;
+            height: 22px;
+            position: absolute;
+
+            left: 47%;
+            bottom: -55%;
+        }
+    }
+}
+.customBtn {
+    background-color: var(--primary);
+    color: white;
+    margin-top: 1.5em;
+}

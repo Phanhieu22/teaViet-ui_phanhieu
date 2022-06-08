@@ -35,3 +35,18 @@ export const getAllCollections = async (url) => {
             return error;
         });
 };
+export const getOneProduct = async (url) => {
+    return axios
+        .get(url)
+        .then((response) => {
+            if (response.data.success) {
+                return response.data.product;
+            } else {
+                toast.error('lấy dữ liệu thất bại');
+            }
+        })
+        .catch((error) => {
+            console.log(error);
+            return error;
+        });
+};
