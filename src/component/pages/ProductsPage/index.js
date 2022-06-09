@@ -9,7 +9,10 @@ import CardProductItem from '~/component/CardProductItem';
 import ImageProduct from '~/component/ImageProduct';
 import styles from './product.module.scss';
 import Breadcrumb_bg from '~/component/Breadcrumb_bg';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { selectObjectEditing } from '~/redux/product/selector';
+import { getOneProduct } from '~/redux/product/actions';
+import { useParams } from 'react-router-dom';
 const cx = classnames.bind(styles);
 
 function TabPanel(props) {
@@ -33,9 +36,22 @@ function TabPanel(props) {
 const ProductsPage = () => {
     const [value, setValue] = useState(0);
     const [widthScreen, setWidthScreen] = useState(0);
+
+    const [oder, setOder] = useState(false);
+    const [amount, setAmount] = useState(1);
+
+    const dispatch = useDispatch();
+
+    const { slug } = useParams();
+    useEffect(() => {
+        dispatch(getOneProduct.request(slug));
+    }, [slug]);
+
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
+    const introProduct = useSelector(selectObjectEditing);
+    console.log(introProduct);
     const setCol = (width) => {
         if (width > 1200) {
             return 3;
@@ -47,23 +63,6 @@ const ProductsPage = () => {
             return 6;
         }
     };
-    function getWindowDimensions() {
-        const { innerWidth: width, innerHeight: height } = window;
-
-        return {
-            width,
-            height,
-        };
-    }
-    useEffect(() => {
-        function handleResize() {
-            setWidthScreen(getWindowDimensions().width);
-        }
-        setWidthScreen(window.innerWidth);
-        window.addEventListener('resize', handleResize);
-
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
 
     const data = {
         nameItems: 'Trà xanh sencha',
@@ -99,46 +98,52 @@ const ProductsPage = () => {
         ],
     };
 
+    const handleOderCall = () => {
+        setOder(true);
+    };
+    const handleOder = () => {
+        setOder(false);
+    };
     return (
         <div className={cx('wrapper')}>
             <Breadcrumb_bg
-                title="Chè xanh matcha"
+                title="trà xanh matcha"
                 level1="Trang chủ"
                 toLv1="/"
                 level2="Chè xanh matcha"
                 toLv2="/products"
-                level3="Trà xanh Matcha hương Nhài 1kg"
+                level3={introProduct.nameProduct}
             />
             <Container>
                 <Grid container>
                     <Grid item xs={12} md={6}>
-                        <ImageProduct img="https://product.hstatic.net/200000354189/product/jasmine_matcha_1kg_56298c226fc644ceb279083680b7a6f2_1024x1024.jpg" />
+                        <ImageProduct img={introProduct.thumbnail} />
                     </Grid>
                     <Grid item xs={12} md={6}>
                         <div className={cx('nameProduct')}>
-                            <h2>Trà xanh Matcha hương Nhài 1kg</h2>
+                            <h2>{introProduct.nameProduct}</h2>
                         </div>
                         <div className={cx('status')}>
                             <span>
-                                Thương hiệu : <span className={cx('colorPrimary')}>SATOEN</span>
+                                Thương hiệu : <span className={cx('colorPrimary')}>{introProduct.trademark}</span>
                             </span>
                             <span className={cx('split')}></span>
                             <span>
-                                Tình trạng : <span className={cx('colorPrimary')}>còn hàng</span>
+                                Tình trạng : <span className={cx('colorPrimary')}>{introProduct.status}</span>
                             </span>
                         </div>
                         <div className={cx('price')}>
-                            <h3>1,100,000</h3> <span className={cx('currency')}>đ</span>
+                            <h3>{introProduct.price}</h3> <span className={cx('currency')}>đ</span>
                         </div>
                         <div className={cx('intro')}>
                             <p>
-                                Hoàn hảo để uống hàng ngày, Trà xanh Matcha hương Nhài của Satoen có màu xanh ngọc bích
-                                rực rỡ và vị ngọt nhẹ tự nhiên. Độ se nhẹ từ catechin của trà cân bằng hoàn hảo vị ngọt
-                                từ các axit amin L-theanines
+                                Hoàn hảo để uống hàng ngày, Trà xanh của Satoen có màu xanh ngọc bích rực rỡ và vị ngọt
+                                nhẹ tự nhiên. Độ se nhẹ từ catechin của trà cân bằng hoàn hảo vị ngọt từ các axit amin
+                                L-theanines
                             </p>
                         </div>
                         <div className={cx('ingredientProduction')}>
-                            <b>Thành phần :</b> <span>Trà xanh Matcha Special, hương hoa Nhài.</span>
+                            <b>Thành phần :</b> <span>Trà xanh Special, hương hoa Nhài.</span>
                         </div>
                         <div className={cx('packaging')}>
                             <b>Đóng gói :</b> <span>Túi zip 1kg</span>
@@ -152,35 +157,63 @@ const ProductsPage = () => {
 
                         <div className={cx('weight')}>
                             <h3>Trọng lượng</h3>
-                            <Button rounded outline className={cx('customBtn')} text>
-                                1kg
+                            <Button
+                                onClick={handleOder}
+                                rounded
+                                outline
+                                className={cx('customBtn', oder === false ? 'active' : 'notActive')}
+                                text>
+                                mua lẻ
                             </Button>
-                            <Button rounded outline className={cx('customBtn')} text>
+                            <Button
+                                onClick={handleOderCall}
+                                rounded
+                                outline
+                                className={cx('customBtn', oder === true ? 'active' : 'notActive')}
+                                text>
                                 Hơn 10kg
                             </Button>
                         </div>
-                        <div className={cx('amount')}>
-                            <h3>Số lượng</h3>
-                            <Button className={cx('customBtn2')} count>
-                                -
+                        {oder === false ? (
+                            <div>
+                                <div className={cx('amount')}>
+                                    <h3>Số lượng</h3>
+                                    <Button
+                                        onClick={() => {
+                                            if (amount <= +1) {
+                                                setAmount(amount);
+                                            } else {
+                                                setAmount(amount - 1);
+                                            }
+                                        }}
+                                        className={cx('customBtn2')}
+                                        count>
+                                        -
+                                    </Button>
+                                    <Button className={cx('customBtn2')} count>
+                                        {amount}
+                                    </Button>
+                                    <Button onClick={() => setAmount(amount + 1)} className={cx('customBtn2')} count>
+                                        +
+                                    </Button>
+                                </div>
+                                <div className={cx('buyButton')}>
+                                    <Button rounded outline className={cx('customBtn')}>
+                                        {' '}
+                                        Mua ngay
+                                    </Button>
+                                    <Button rounded outline className={cx('customBtn')}>
+                                        {' '}
+                                        Thêm vào giỏ hàng
+                                    </Button>
+                                </div>
+                            </div>
+                        ) : (
+                            <Button className={cx('customCall')} rounded>
+                                Gọi 0394337519
                             </Button>
-                            <Button className={cx('customBtn2')} count>
-                                1
-                            </Button>
-                            <Button className={cx('customBtn2')} count>
-                                +
-                            </Button>
-                        </div>
-                        <div className={cx('buyButton')}>
-                            <Button rounded outline className={cx('customBtn')}>
-                                {' '}
-                                Mua ngay
-                            </Button>
-                            <Button rounded outline className={cx('customBtn')}>
-                                {' '}
-                                Thêm vào giỏ hàng
-                            </Button>
-                        </div>
+                        )}
+
                         <div>
                             <p>Gọi đặt mua: 0394337519 để nhanh chóng đặt hàng</p>
                         </div>
@@ -209,8 +242,8 @@ const ProductsPage = () => {
                 </div>
                 <Grid className={cx('items')} spacing={3} container>
                     {data.items.map((item, index) => (
-                        <Grid key={index} item xs={setCol(widthScreen)}>
-                            <CardProductItem setting search key={index} item={item} />{' '}
+                        <Grid key={index} item xs={6} sm={4} md={3} lg={3}>
+                            <CardProductItem key={index} item={item} />{' '}
                         </Grid>
                     ))}
                 </Grid>

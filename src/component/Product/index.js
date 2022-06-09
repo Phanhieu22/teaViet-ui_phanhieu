@@ -37,17 +37,7 @@ const data = [
 function Product({ setting = false }) {
     const dispatch = useDispatch();
 
-    const [widthScreen, setWidthScreen] = useState(0);
     const [productPortfolioActive, setProductPortfolioActive] = useState(data[0].productPortfolio);
-
-    useEffect(() => {
-        function handleResize() {
-            setWidthScreen(getWindowDimensions().width);
-        }
-        setWidthScreen(window.innerWidth);
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
 
     useEffect(() => {
         dispatch(actions.getAllCollections.getAllCollectionsRequest(productPortfolioActive));
@@ -58,15 +48,6 @@ function Product({ setting = false }) {
     const handleSetItemsActive = (items) => {
         setProductPortfolioActive(items.productPortfolio);
     };
-
-    function getWindowDimensions() {
-        const { innerWidth: width, innerHeight: height } = window;
-
-        return {
-            width,
-            height,
-        };
-    }
 
     const setCol = (width) => {
         if (width > 1200) {
@@ -131,8 +112,8 @@ function Product({ setting = false }) {
                     <Grid className={cx('items')} spacing={3} container>
                         {response.length > +0 &&
                             response.map((item, index) => (
-                                <Grid key={index} item xs={setCol(widthScreen)}>
-                                    <CardProductItem setting={setting} search key={index} item={item} />{' '}
+                                <Grid key={index} item xs={6} sm={4} md={3} lg={3}>
+                                    <CardProductItem setting={setting} key={index} item={item} />{' '}
                                 </Grid>
                             ))}
                     </Grid>

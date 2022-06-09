@@ -126,8 +126,8 @@
         }
         display: flex;
         align-items: center;
-        padding: 2em 0;
-        margin: 3em 0;
+        padding: 1.4em;
+        margin: 1em 0;
         border-top: #e1e1e1 1px solid;
         border-bottom: #e1e1e1 1px solid;
     }
@@ -148,10 +148,24 @@
 }
 .customBtn {
     color: black !important;
-    height: 2em !important;
+    height: 2.5em !important;
 }
 .customBtn2 {
 }
 .mt-4 {
     margin-top: 24px;
+}
+.customCall {
+    height: 2.8em;
+    margin-bottom: 0.5em;
+    background-image: -webkit-linear-gradient(35deg, #91ad41 0%, #ff8a6c 100%) !important;
+    color: white;
+    font-weight: 500;
+    &:hover {
+        background-image: none !important;
+        background-color: var(--primary) !important;
+    }
+}
+.active {
+    background-color: var(--primary) !important;
 }

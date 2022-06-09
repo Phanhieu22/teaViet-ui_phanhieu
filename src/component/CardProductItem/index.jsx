@@ -2,13 +2,12 @@ import { faGear } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Tippy from '@tippyjs/react';
 import classNames from 'classnames/bind';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Button from '~/component/Button';
 import { SearchIcon } from '~/component/icons';
 import MenuAdmin from '../layouts/component/Popper/menuAdmin';
 import styles from './CardProductItem.module.scss';
-
-import { useDispatch } from 'react-redux';
 import { editProduct } from '~/redux/product/actions';
 const cx = classNames.bind(styles);
 
@@ -20,7 +19,7 @@ function CardProductItem({ item, onClick, className, setting, guide, search, ...
     };
 
     const dispatch = useDispatch();
-    
+
     return (
         <Link to={`/products/${item.slug}`}>
             <div {...props} className={cx('wrapper', { guide })}>
@@ -44,12 +43,7 @@ function CardProductItem({ item, onClick, className, setting, guide, search, ...
                     <div className={cx('buttonWrapper')}>
                         {setting && (
                             <MenuAdmin item={item}>
-                                <Button
-                                    outline
-                                    rounded
-                                    
-                                    className={cx('customBtn')}
-                                    icon>
+                                <Button outline rounded className={cx('customBtn')} icon>
                                     <FontAwesomeIcon icon={faGear} />
                                 </Button>
                             </MenuAdmin>

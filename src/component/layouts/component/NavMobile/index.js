@@ -33,19 +33,21 @@ function NavMobile({ open, handleClose }) {
                         return (
                             <div key={index}>
                                 <SelectButton title={navItem.title}>
-                                    {navItem.children.data.map((nav) => (
-                                        <span key={nav.id}>
-                                            <Button className={cx('customBtn')} to={nav.to}>
-                                                {nav.title}
-                                            </Button>
-                                        </span>
-                                    ))}
+                                    {navItem.children.data.map((nav, index) => {
+                                        return (
+                                            <span key={nav.id}>
+                                                <Button className={cx('customBtn')} to={nav.to}>
+                                                    {nav.title}
+                                                </Button>
+                                            </span>
+                                        );
+                                    })}
                                 </SelectButton>
                             </div>
                         );
                     } else {
                         return (
-                            <Button className={cx('customBtn')} to={navItem.to}>
+                            <Button className={cx('customBtn')} to={navItem.to} key={navItem.title}>
                                 {navItem.title}
                             </Button>
                         );

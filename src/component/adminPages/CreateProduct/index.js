@@ -21,13 +21,32 @@ function CreateProduct() {
         price: 0,
         thumbnail: '',
     });
+    const [detailProduct, setDetailProduct] = useState({
+        nameProduct: '',
+        ingredients: '',
+        packaging: '',
+        expiryDate: '',
+        eadCode: '',
+        descriptionProduct: '',
+        productDetailer: '',
+        foodSafe: '',
+        imageProduct: [],
+    });
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(product);
         dispatch(actions.postAProduct.postAProductRequest(product));
     };
+    const handleSubmitDetail = (e) => {
+        e.preventDefault();
+
+        console.log(detailProduct);
+    };
     const handleChange = (event) => {
         setProduct({ ...product, [event.target.name]: event.target.value });
+    };
+    const handleChangeDetailProduct = (event) => {
+        setDetailProduct({ ...detailProduct, [event.target.name]: event.target.value });
     };
     return (
         <div className={cx('wrapper')}>
@@ -116,6 +135,112 @@ function CreateProduct() {
                 <div className={cx('title')}>
                     <h2></h2>
                 </div>
+                <form onSubmit={handleSubmitDetail}>
+                    <Grid container>
+                        <Grid item xs={12} md={6}>
+                            <div className={cx('inputField')}>
+                                <h5>Tên sản phẩm</h5>
+                                <InputField2
+                                    valueInput={detailProduct.nameProduct}
+                                    handelChangeInput={handleChangeDetailProduct}
+                                    name="nameProduct"
+                                    placeholder="Tên sản phẩm"
+                                    width={500}
+                                />
+                            </div>
+                        </Grid>
+                        <Grid item xs={12} md={6}>
+                            <div className={cx('inputField')}>
+                                <h5>Thành phần</h5>
+                                <InputField2
+                                    valueInput={detailProduct.ingredients}
+                                    handelChangeInput={handleChangeDetailProduct}
+                                    name="ingredients"
+                                    placeholder={'Thành phần'}
+                                    width={500}
+                                />
+                            </div>
+                        </Grid>
+                        <Grid item xs={12} md={4}>
+                            <div className={cx('inputField')}>
+                                <h5>Đóng gói</h5>
+                                <InputField2
+                                    valueInput={detailProduct.packaging}
+                                    handelChangeInput={handleChangeDetailProduct}
+                                    name="packaging"
+                                    placeholder="cách thức đóng gói"
+                                    width={320}
+                                />
+                            </div>
+                        </Grid>
+                        <Grid item xs={12} md={4}>
+                            <div className={cx('inputField')}>
+                                <h5>Hạn sử dụng</h5>
+                                <InputField2
+                                    valueInput={detailProduct.expiryDate}
+                                    handelChangeInput={handleChangeDetailProduct}
+                                    name="expiryDate"
+                                    placeholder="Hạn sử dụng"
+                                    width={320}
+                                />
+                            </div>
+                        </Grid>{' '}
+                        <Grid item xs={12} md={4}>
+                            <div className={cx('inputField')}>
+                                <h5>EAD code</h5>
+                                <InputField2
+                                    valueInput={detailProduct.eadCode}
+                                    handelChangeInput={handleChangeDetailProduct}
+                                    name="eadCode"
+                                    placeholder="EAD code"
+                                    width={320}
+                                />
+                            </div>
+                        </Grid>{' '}
+                        <Grid item xs={12} md={6}>
+                            <div className={cx('inputField')}>
+                                <h5>Giới thiệu sản phẩm</h5>
+                                <textarea
+                                    name="descriptionProduct"
+                                    onChange={handleChangeDetailProduct}
+                                    rows="7"
+                                    value={detailProduct.descriptionProduct}
+                                    cols="60">
+                                    {detailProduct.descriptionProduct}
+                                </textarea>
+                            </div>
+                        </Grid>{' '}
+                        <Grid item xs={12} md={6}>
+                            <div className={cx('inputField')}>
+                                <h5>Chi tiết sản phẩm</h5>
+                                <textarea
+                                    name="productDetailer"
+                                    onChange={handleChangeDetailProduct}
+                                    value={detailProduct.productDetailer}
+                                    rows="7"
+                                    cols="60">
+                                    {detailProduct.productDetailer}
+                                </textarea>
+                            </div>
+                        </Grid>{' '}
+                        <Grid item xs={12} md={6}>
+                            <div className={cx('inputField')}>
+                                <h5>Công bố an toàn vệ sinh thực phẩm</h5>
+                                <textarea
+                                    value={detailProduct.foodSafe}
+                                    name="foodSafe"
+                                    onChange={handleChangeDetailProduct}
+                                    rows="7"
+                                    cols="60">
+                                    {detailProduct.foodSafe}
+                                </textarea>
+                            </div>
+                        </Grid>{' '}
+                        <Button className={cx('customBtnDetail')} type="submit">
+                            tạo mới
+                        </Button>
+                    </Grid>{' '}
+                </form>
             </Container>
         </div>
     );

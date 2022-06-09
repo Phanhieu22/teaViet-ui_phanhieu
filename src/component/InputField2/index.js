@@ -6,11 +6,21 @@ import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 const cx = classNames.bind(styles);
 
-function InputField2({ handelChangeInput, valueInput, width, placeholder, readOnly = false, type = 'text', name }) {
+function InputField2({
+    handelChangeInput,
+    valueInput,
+    width,
+    placeholder,
+    readOnly = false,
+    type = 'text',
+    name,
+    Tag = 'input',
+}) {
     const [loading, setLoading] = useState(false);
+
     return (
         <div style={{ width: `${width}px` }} className={cx('search')}>
-            <input
+            <Tag
                 type={type}
                 placeholder={placeholder}
                 spellCheck={false}

@@ -52,7 +52,7 @@ const configNavBar = [
             title: 'purchase',
             data: [
                 {
-                    id: '1',
+                    id: '4',
                     to: '/purchase',
                     title: 'Tại sao chọn chúng tôi',
                 },
@@ -66,34 +66,31 @@ const configNavBar = [
             title: 'knowledge',
             data: [
                 {
-                    id: '1',
+                    id: '5',
                     to: '/knowledge',
                     title: 'kiến thưc pha chế',
                 },
                 {
-                    id: '2',
+                    id: '6',
                     to: '/knowledge',
                     title: 'câu hỏi thường gặp',
                 },
                 {
-                    id: '3',
+                    id: '7',
                     to: '/product2',
                     title: 'quy trình sản xuất chè macha',
                 },
                 {
-                    id: '4',
+                    id: '8',
                     to: '/product2',
                     title: 'quy trình sản xuất chè sencha',
                 },
             ],
         },
     },
+    { id: '9', icon: null, title: 'Tin tức', to: '/news' },
     {
-        icon: null,
-        title: 'Tin tức',
-        to: '/news',
-    },
-    {
+        id: '10',
         icon: null,
         title: 'Liên hệ',
         to: '/contact',

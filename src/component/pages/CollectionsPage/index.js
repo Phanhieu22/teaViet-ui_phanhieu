@@ -32,39 +32,10 @@ const cx = classnames.bind(styles);
 const CollectionsPage = (props) => {
     const dispatch = useDispatch();
     const data = useSelector(selectorCollections);
-    console.log(data);
-    const [widthScreen, setWidthScreen] = useState(0);
 
-    const setCol = (width) => {
-        if (width > 1200) {
-            return 3;
-        } else {
-        }
-        if (width > 600) {
-            return 4;
-        } else {
-            return 6;
-        }
-    };
-    function getWindowDimensions() {
-        const { innerWidth: width, innerHeight: height } = window;
-
-        return {
-            width,
-            height,
-        };
-    }
     const { productPortfolio } = useParams();
     useEffect(() => {
-        function handleResize() {
-            setWidthScreen(getWindowDimensions().width);
-        }
-        setWidthScreen(window.innerWidth);
-        window.addEventListener('resize', handleResize);
-
         dispatch(actions.getAllCollections.getAllCollectionsRequest(productPortfolio));
-
-        return () => window.removeEventListener('resize', handleResize);
     }, [productPortfolio]);
 
     return (
@@ -103,8 +74,8 @@ const CollectionsPage = (props) => {
             <Container>
                 <Grid className={cx('items')} spacing={3} container>
                     {data.map((item, index) => (
-                        <Grid key={index} item xs={setCol(widthScreen)}>
-                            <CardProductItem  setting search key={index} item={item} />{' '}
+                        <Grid key={index} item xs={6} sm={4} md={3} lg={3}>
+                            <CardProductItem key={index} item={item} />{' '}
                         </Grid>
                     ))}
                 </Grid>

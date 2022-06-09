@@ -50,7 +50,7 @@ function Guide() {
                 <div className={cx('showSwiper')}>
                     <ShowSwiper>
                         {items.map((item, index) => (
-                            <SwiperSlide key={item.id}>{<CardProductItem guide search item={item} />}</SwiperSlide>
+                            <SwiperSlide key={item.id}>{<CardProductItem guide item={item} />}</SwiperSlide>
                         ))}
                     </ShowSwiper>
                 </div>
