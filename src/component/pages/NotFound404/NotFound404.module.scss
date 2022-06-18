@@ -1,0 +1,44 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .title {
+        font-weight: 500;
+
+        text-align: center;
+        position: relative;
+        line-height: 1.4;
+
+        margin-bottom: 20px;
+        h2 {
+            font-size: 7em;
+            font-weight: 600;
+            &::before {
+                content: '404';
+                user-select: none;
+                background: -webkit-linear-gradient(35deg, #91ad41 0%, #ff8a6c 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+        }
+        b {
+            font-size: 1em;
+            margin-bottom: 0.2em;
+            color: var(--primary);
+        }
+        p {
+            font-size: 1.3em;
+        }
+    }
+    .customBtn {
+        margin: auto !important;
+        font-size: 1em;
+        font-weight: 600;
+        background-image: -webkit-linear-gradient(35deg, #91ad41 0%, #ff8a6c 100%) !important;
+    }
+}
+.img {
+    width: 14em;
+    display: block;
+    margin: 0 auto 1em;
+}

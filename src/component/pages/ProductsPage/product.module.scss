@@ -31,6 +31,7 @@
     }
 }
 .wrapper {
+    font-family: 'Roboto Condensed', sans-serif;
     .breadcrumb_background {
         position: relative;
         height: 197px;
@@ -100,23 +101,23 @@
     }
     .intro {
         font-family: 'Roboto Condensed';
-        font-size: 1em;
+        font-size: 1.2em;
     }
     .ingredientProduction {
         padding: 5px 0;
-        font-size: 0.9em;
+        font-size: 1em;
     }
     .packaging {
         padding: 2px 0;
-        font-size: 0.9em;
+        font-size: 1em;
     }
     .expiry {
         padding: 5px 0;
-        font-size: 0.9em;
+        font-size: 1em;
     }
     .EanCode {
         padding: 5px 0;
-        font-size: 0.9em;
+        font-size: 1em;
     }
 
     .weight {

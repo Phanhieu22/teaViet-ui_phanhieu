@@ -29,7 +29,10 @@ function Register() {
                 initialValues={initialValue}
                 validationSchema={Yup.object().shape({
                     email: Yup.string().required('vui lòng nhập trường này'),
-                    password: Yup.string().required('vui lòng nhập trường này'),
+                    password: Yup.string()
+                        .required('vui lòng nhập trường này')
+                        .min(8, 'Mật khẩu quá ngắn vui lòng nhập hơn 8 ký tự')
+                        .matches(/[a-zA-Z]/, 'Password can only contain Latin letters.'),
                 })}
                 onSubmit={(value, { resetForm }) => {
                     dispatch(createUser.createUserRequest(value));

@@ -33,10 +33,10 @@ function CertifiedShowMobile({ data }) {
     const setCol = (width) => {
         if (width > 1200) {
             return 4;
-        } else {
-        }
-        if (width > 600) {
+        } else if (width > 800) {
             return 3;
+        } else if (width > 600) {
+            return 2;
         } else {
             return 1;
         }
@@ -45,7 +45,7 @@ function CertifiedShowMobile({ data }) {
         <Swiper
             autoplay={{ delay: 3000 }}
             loop={true}
-            spaceBetween={50}
+            spaceBetween={30}
             slidesPerView={setCol(widthScreen)}
             // onSlideChange={() => console.log('slide change')}
             // onSwiper={(swiper) => console.log(swiper)}

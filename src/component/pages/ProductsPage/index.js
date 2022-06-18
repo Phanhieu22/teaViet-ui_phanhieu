@@ -1,18 +1,23 @@
-import { Breadcrumbs, Container, Grid, Link, Typography } from '@mui/material';
+import { Container, Grid, Typography } from '@mui/material';
 import Box from '@mui/material/Box';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
 import classnames from 'classnames/bind';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import Breadcrumb_bg from '~/component/Breadcrumb_bg';
 import Button from '~/component/Button';
 import CardProductItem from '~/component/CardProductItem';
 import ImageProduct from '~/component/ImageProduct';
-import styles from './product.module.scss';
-import Breadcrumb_bg from '~/component/Breadcrumb_bg';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectObjectEditing } from '~/redux/product/selector';
+import { addProductToCart } from '~/redux/auth/action';
+import { selectorAuthState } from '~/redux/auth/selector';
+import { selectorCollections } from '~/redux/collections/selector';
 import { getOneProduct } from '~/redux/product/actions';
-import { useParams } from 'react-router-dom';
+import { selectObjectEditing } from '~/redux/product/selector';
+import formatProductPortfolio from '~/utils/formatProductPortfolio';
+import styles from './product.module.scss';
+
 const cx = classnames.bind(styles);
 
 function TabPanel(props) {
@@ -45,95 +50,79 @@ const ProductsPage = () => {
     const { slug } = useParams();
     useEffect(() => {
         dispatch(getOneProduct.request(slug));
+        window.scrollTo(0, 0);
     }, [slug]);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
     const introProduct = useSelector(selectObjectEditing);
-    console.log(introProduct);
-    const setCol = (width) => {
-        if (width > 1200) {
-            return 3;
-        } else {
-        }
-        if (width > 600) {
-            return 4;
-        } else {
-            return 6;
-        }
-    };
+    const authState = useSelector(selectorAuthState);
+    const cartUser = authState?.user?.cart;
+    const idUser = authState?.user?._id;
 
-    const data = {
-        nameItems: 'Trà xanh sencha',
-        items: [
-            {
-                thumbnail:
-                    'https://product.hstatic.net/200000354189/product/jasmine_matcha_100g_0ce946dbe9ff4e99b1ee141c6131be92.jpg',
-                nameItem: 'Trà xanh Matcha hương Nhài 100g',
-                price: 125000,
-                to: '/detailItem',
-            },
-            {
-                thumbnail:
-                    'https://product.hstatic.net/200000354189/product/jasmine_matcha_100g_0ce946dbe9ff4e99b1ee141c6131be92.jpg',
-                nameItem: 'Trà xanh Matcha hương Nhài 100g',
-                price: 125000,
-                to: '/detailItem',
-            },
-            {
-                thumbnail:
-                    'https://product.hstatic.net/200000354189/product/jasmine_matcha_100g_0ce946dbe9ff4e99b1ee141c6131be92.jpg',
-                nameItem: 'Trà xanh Matcha hương Nhài 100g',
-                price: 125000,
-                to: '/detailItem',
-            },
-            {
-                thumbnail:
-                    'https://product.hstatic.net/200000354189/product/jasmine_matcha_100g_0ce946dbe9ff4e99b1ee141c6131be92.jpg',
-                nameItem: 'Trà xanh Matcha hương Nhài 100g',
-                price: 125000,
-                to: '/detailItem',
-            },
-        ],
-    };
-
+    const data = useSelector(selectorCollections);
     const handleOderCall = () => {
         setOder(true);
     };
     const handleOder = () => {
         setOder(false);
     };
+    const checkOutEditingProduct = (newProductInCart) => {
+        const item = cartUser.find((item) => item.id === newProductInCart.id);
+        if (item) {
+            return false;
+        } else {
+            return true;
+        }
+    };
+    const handleAddToCart = () => {
+        const newProductInCart = {
+            thumbnail: introProduct.thumbnail,
+            nameProduct: introProduct.nameProduct,
+            price: introProduct.price,
+            amount,
+            slug: introProduct.slug,
+            id: introProduct._id,
+            idUser: idUser,
+        };
+        if (newProductInCart && checkOutEditingProduct(newProductInCart)) {
+            const newCart = cartUser.push(newProductInCart);
+            dispatch(addProductToCart.addProductToCartRequest({ idUser: idUser, cartUser }));
+        } else {
+            alert('sản phẩn đã có trong giỏ hàng');
+        }
+    };
+    const navLink = `/collections/${introProduct.productPortfolio}`;
     return (
         <div className={cx('wrapper')}>
             <Breadcrumb_bg
-                title="trà xanh matcha"
-                level1="Trang chủ"
-                toLv1="/"
-                level2="Chè xanh matcha"
-                toLv2="/products"
+                title={formatProductPortfolio(introProduct.productPortfolio)}
+                level2={formatProductPortfolio(introProduct.productPortfolio)}
+                toLv2={navLink}
                 level3={introProduct.nameProduct}
             />
+            {console.log(introProduct)}
             <Container>
                 <Grid container>
                     <Grid item xs={12} md={6}>
-                        <ImageProduct img={introProduct.thumbnail} />
+                        <ImageProduct img={introProduct?.thumbnail} />
                     </Grid>
                     <Grid item xs={12} md={6}>
                         <div className={cx('nameProduct')}>
-                            <h2>{introProduct.nameProduct}</h2>
+                            <h2>{introProduct?.nameProduct}</h2>
                         </div>
                         <div className={cx('status')}>
                             <span>
-                                Thương hiệu : <span className={cx('colorPrimary')}>{introProduct.trademark}</span>
+                                Thương hiệu : <span className={cx('colorPrimary')}>{introProduct?.trademark}</span>
                             </span>
                             <span className={cx('split')}></span>
                             <span>
-                                Tình trạng : <span className={cx('colorPrimary')}>{introProduct.status}</span>
+                                Tình trạng : <span className={cx('colorPrimary')}>{introProduct?.status}</span>
                             </span>
                         </div>
                         <div className={cx('price')}>
-                            <h3>{introProduct.price}</h3> <span className={cx('currency')}>đ</span>
+                            <h3>{introProduct?.price}</h3> <span className={cx('currency')}>đ</span>
                         </div>
                         <div className={cx('intro')}>
                             <p>
@@ -202,7 +191,7 @@ const ProductsPage = () => {
                                         {' '}
                                         Mua ngay
                                     </Button>
-                                    <Button rounded outline className={cx('customBtn')}>
+                                    <Button onClick={handleAddToCart} rounded outline className={cx('customBtn')}>
                                         {' '}
                                         Thêm vào giỏ hàng
                                     </Button>
@@ -241,7 +230,7 @@ const ProductsPage = () => {
                     <h2></h2>
                 </div>
                 <Grid className={cx('items')} spacing={3} container>
-                    {data.items.map((item, index) => (
+                    {data.map((item, index) => (
                         <Grid key={index} item xs={6} sm={4} md={3} lg={3}>
                             <CardProductItem key={index} item={item} />{' '}
                         </Grid>

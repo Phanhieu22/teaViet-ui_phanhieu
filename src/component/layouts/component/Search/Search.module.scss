@@ -11,7 +11,7 @@
     }
 }
 .search {
-    --width-btn_search: 52px;
+    --width-btn_search: 42px;
 
     display: flex;
     flex-basis: auto;
@@ -20,7 +20,6 @@
     height: 36px;
     caret-color: rgb(254, 44, 85);
     border-radius: var(--border-radius);
-    padding: 0 0 0 20px;
     border: solid 1.5px transparent;
     position: relative;
     input {
@@ -30,8 +29,8 @@
         border: none;
         background: transparent;
         outline: none;
-        padding: 0px;
-        width: 252px;
+        padding: 0 10px 0 15px;
+        width: 150px;
         caret-color: rgb(254, 44, 85);
         flex-grow: 2;
         caret-color: var(--primary);
@@ -45,6 +44,7 @@
         margin: auto 0;
         background: rgba(22, 24, 35, 0.12);
         display: block;
+        margin-left: 20px;
     }
     .btnIconSearch {
         border: none !important;

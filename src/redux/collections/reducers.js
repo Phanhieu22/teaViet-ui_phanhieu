@@ -55,7 +55,7 @@ const collections = (state = INIT_STATE, action) => {
         }
         case actions.getTypeAction(actions.deleteProduct.deleteProductSuccess): {
             const newState = { ...state };
-            
+
             const newCollections = newState.collections.filter((item) => {
                 return item._id !== payload._id;
             });

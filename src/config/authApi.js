@@ -6,10 +6,7 @@ const dev = {
 
 const product = {
     apiGateway: {
-        tracker: 'http://61.28.228.205:15084',
-        adroute: 'http://61.28.228.205:15083',
-        uaa: 'http://61.28.228.205:15082/uaa',
-        auth: 'http://61.28.228.205:15082/uaa/oauth/token',
+        server1: 'https://mern-app-hieu.herokuapp.com/api',
     },
 };
 

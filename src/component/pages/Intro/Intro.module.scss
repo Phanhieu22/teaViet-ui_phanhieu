@@ -1,0 +1,36 @@
+.wrapper {
+    // font-family: 'Roboto Condensed', sans-serif;
+    img {
+        max-width: 15em;
+        margin: auto;
+        display: block;
+    }
+    .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        h2 {
+            font-size: 30px;
+            font-weight: 500;
+        }
+        p {
+            line-height: 1.8em;
+            margin-bottom: 0.3em;
+        }
+        ol {
+            li {
+                list-style-type: disc;
+                margin: 0.6em 3em;
+            }
+        }
+        ul {
+            li {
+                margin: 0.6em 2em;
+                b {
+                    font-size: 1.3em;
+                }
+            }
+        }
+    }
+}

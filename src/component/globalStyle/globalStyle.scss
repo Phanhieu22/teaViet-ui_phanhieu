@@ -105,9 +105,9 @@ html *::-webkit-scrollbar-track {
     color: red !important;
 }
 .MuiBreadcrumbs-li {
-    font-size: 1.3em !important;
-    color: #376118 !important;
-    font-weight: 600 !important;
+    font-size: 1.4em !important;
+    color: #21271d !important;
+    font-weight: 500 !important;
 }
 .css-1wuw8dw-MuiBreadcrumbs-separator {
     font-size: 20px !important;
@@ -148,3 +148,13 @@ html *::-webkit-scrollbar-track {
 // .MuiSvgIcon-root {
 //     color: white !important;
 // }
+
+//@at-root
+.css-1i5alow-MuiButtonBase-root-MuiFab-root-MuiSpeedDial-fab {
+    box-shadow: none !important;
+}
+.css-1nrgn0c-MuiButtonBase-root-MuiFab-root-MuiSpeedDialAction-fab {
+}
+.MuiTooltip-popper {
+    font-size: 3rem !important;
+}

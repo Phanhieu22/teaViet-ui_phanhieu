@@ -1,5 +1,11 @@
 import { all, call, fork, put, takeLatest } from 'redux-saga/effects';
-import { checkToken, RequestGetUser, userLogin, userRegister } from '../../api/auth.js';
+import {
+    ApiAddProductToCart,
+    ApiRemoveProductInCart,
+    checkToken,
+    userLogin,
+    userRegister,
+} from '../../api/auth.js';
 import apiConfig from '../../config/authApi';
 import History from '../../History.js';
 import setAuthToken from '../../utils/setAuthToken';
@@ -8,9 +14,7 @@ import * as actions from './action';
 import * as actions2 from '../action';
 import { LOCAL_STOGARE_TOKEN_NAME } from './constans';
 
-function* workerGetUser() {
-    const user = yield call(RequestGetUser);
-}
+
 function* workerLoginUser(user) {
     const response = yield call(userLogin, `${apiConfig.apiGateway.server1}/auth/login`, user);
     if (response?.data?.success) {
@@ -35,6 +39,7 @@ function* workerLoginUser(user) {
 }
 
 function* workerUserRegister(user) {
+    console.log(user);
     const response = yield call(userRegister, `${apiConfig.apiGateway.server1}/auth/register`, user);
     if (response.data?.success) {
         // lưu token vào local storage
@@ -75,6 +80,30 @@ function* workerLogoutUser() {
         yield put(actions.logoutUser.logoutUseSuccess());
     }
 }
+function* workerAddProductToCart(params) {
+    const response = yield call(ApiAddProductToCart, `${apiConfig.apiGateway.server1}/auth/user`, params.payload);
+    console.log(response);
+
+    if (response?.success) {
+        yield put(actions.addProductToCart.addProductToCartSuccess(response.cart));
+    } else {
+        yield put(actions.addProductToCart.addProductToCartFailure(response));
+    }
+}
+function* workerRemoveProductInCart(params) {
+    const response = yield call(
+        ApiRemoveProductInCart,
+        `${apiConfig.apiGateway.server1}/auth/user/cart`,
+        params.payload
+    );
+    console.log(response);
+
+    if (response?.success) {
+        yield put(actions.removeProductInCart.removeProductInCartSuccess(response.cart));
+    } else {
+        yield put(actions.removeProductInCart.removeProductInCartFailure(response));
+    }
+}
 /// cầu trúc redux saga
 export function* watcherLoginUser() {
     yield takeLatest(actions.loginUser.loginUserRequest, workerLoginUser);
@@ -89,9 +118,22 @@ export function* watcherSetUpUser() {
 export function* watcherLogoutUser() {
     yield takeLatest(actions.logoutUser.logoutUseRequest, workerLogoutUser);
 }
+export function* watcherAddProductToCart() {
+    yield takeLatest(actions.addProductToCart.addProductToCartRequest, workerAddProductToCart);
+}
+export function* watcherRemoveProductInCart() {
+    yield takeLatest(actions.removeProductInCart.removeProductInCartRequest, workerRemoveProductInCart);
+}
 
 function* authSaga() {
-    yield all([fork(watcherLoginUser), fork(watcherRegisterUser), fork(watcherSetUpUser), fork(watcherLogoutUser)]);
+    yield all([
+        fork(watcherLoginUser),
+        fork(watcherRegisterUser),
+        fork(watcherSetUpUser),
+        fork(watcherLogoutUser),
+        fork(watcherAddProductToCart),
+        fork(watcherRemoveProductInCart),
+    ]);
 }
 
 export default authSaga;

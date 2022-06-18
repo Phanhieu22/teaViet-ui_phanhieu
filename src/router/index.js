@@ -13,6 +13,7 @@ import CollectionsPage from '~/component/pages/CollectionsPage';
 import AdminLayout from '~/component/layouts/AdminLayout';
 import EditProduct from '~/component/adminPages/EditProduct';
 import AllProduct from '~/component/adminPages/AllProduct';
+import Intro from '~/component/pages/Intro';
 const configNavBar = [
     {
         icon: null,
@@ -27,20 +28,30 @@ const configNavBar = [
             data: [
                 {
                     id: '1',
-                    to: '/collections/tra-xanh-matcha',
-                    title: 'trà xanh matcha',
+                    to: '/collections/tat-ca-san-pham',
+                    title: 'Tất cả sản phẩm',
                 },
                 {
                     id: '2',
-                    to: '/collections/tra-xanh-sencha',
-
-                    title: 'trà xanh sencha',
+                    to: '/collections/tra-xanh-matcha',
+                    title: 'Trà xanh matcha',
                 },
                 {
                     id: '3',
+                    to: '/collections/tra-xanh-sencha',
+
+                    title: 'Trà xanh sencha',
+                },
+                {
+                    id: '4',
                     to: '/collections/tra-xanh-komachi',
 
-                    title: 'trà xanh komachi',
+                    title: 'Trà xanh komachi',
+                },
+                {
+                    id: '5',
+                    to: '/collections/tra-xanh-houijcha',
+                    title: 'Trà xanh houijcha',
                 },
             ],
         },
@@ -151,30 +162,7 @@ const configAdminNav = [
         },
     },
 ];
-const configCart = {
-    icon: <FontAwesomeIcon icon={faCartPlus} />,
-    children: {
-        title: 'product',
-        data: [
-            {
-                id: '1',
-                to: '/item',
-                nameItem: 'Bột trà Houjicha Special 500g',
-                image: 'https://product.hstatic.net/200000354189/product/houjicha_genmai_tea_powder_8ebf5280b5a6428da030e02b7fbf171d_1024x1024.jpg',
-                price: 300.0,
-                quantity: 1,
-            },
-            {
-                id: '2',
-                to: '/item',
-                nameItem: 'Trà túi lọc Houjicha Genmai 250g',
-                image: 'https://product.hstatic.net/200000354189/product/houjicha_genmai_31f0fa5e9a734f60a4be7bdd5c9946f9_1024x1024.png',
-                price: 400.0,
-                quantity: 1,
-            },
-        ],
-    },
-};
+
 const configLanguage = {
     icon: <FontAwesomeIcon icon={faEarthAsia} />,
     children: {
@@ -221,6 +209,10 @@ const publicRoute = [
         component: Profile,
     },
     {
+        path: '/intro',
+        component: Intro,
+    },
+    {
         path: '/admin/createProduct',
         component: CreateProduct,
         layout: AdminLayout,
@@ -242,4 +234,4 @@ const publicRoute = [
     },
 ];
 const privateRoute = [];
-export { configNavBar, configCart, configLanguage, publicRoute, privateRoute, configAdminNav };
+export { configNavBar, configLanguage, publicRoute, privateRoute, configAdminNav };

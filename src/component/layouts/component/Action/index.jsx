@@ -1,4 +1,4 @@
-import { faMagnifyingGlass, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { faCartPlus, faMagnifyingGlass, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Badge } from '@mui/material';
 import classNames from 'classnames/bind';
@@ -7,8 +7,8 @@ import { toast } from 'react-toastify';
 import MenuListItem from '~/component/layouts/component/Popper/menuItemCart/MenuListItem';
 import MenuListItemLanguage from '~/component/layouts/component/Popper/menuListItemLanguage';
 import { logoutUser } from '~/redux/auth/action';
-import { selectorAuthState } from '~/redux/auth/selector';
-import { configCart, configLanguage } from '~/router';
+import { selectCartUser, selectorAuthState } from '~/redux/auth/selector';
+import { configLanguage } from '~/router';
 import MenuAccount from '../Popper/MenuAccount';
 import PopperSearch from '../Popper/PopperSearch';
 import Search from '../Search';
@@ -18,11 +18,14 @@ const cx = classNames.bind(styles);
 
 function Action() {
     const dispatch = useDispatch();
+    const auth = useSelector(selectorAuthState);
+    const cart = useSelector(selectCartUser);
+
     const configSearch = {
         icon: <FontAwesomeIcon icon={faMagnifyingGlass} />,
         component: <Search />,
     };
-    const auth = useSelector(selectorAuthState);
+
     const configFeatureAccountNotLogin = {
         avatar: <FontAwesomeIcon icon={faUserPlus} />,
         children: {
@@ -71,6 +74,25 @@ function Action() {
             ],
         },
     };
+    const configCart = {
+        icon: <FontAwesomeIcon icon={faCartPlus} />,
+        children: {
+            title: 'product',
+            data: cart
+                ? cart.map((item) => {
+                      return {
+                          id: item.id,
+                          to: `/products/${item.slug}`,
+                          nameItem: item.nameProduct,
+                          image: item.thumbnail,
+                          price: item.price,
+                          quality: item.amount,
+                          idUser: item.idUser,
+                      };
+                  })
+                : [],
+        },
+    };
 
     return (
         <div className={cx('wrapper')}>
@@ -85,7 +107,7 @@ function Action() {
             <div className={cx('iconCart')}>
                 {' '}
                 <MenuListItem items={configCart}>
-                    <Badge badgeContent={4} color="success">
+                    <Badge badgeContent={cart?.length} color="success">
                         {configCart.icon}
                     </Badge>
                 </MenuListItem>

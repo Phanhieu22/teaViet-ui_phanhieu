@@ -1,12 +1,6 @@
 import axios from 'axios';
 import { toast } from 'react-toastify';
-
-const url = 'http://localhost:5000';
-
-export const RequestGetUser = async () => {
-    const user = await axios.get(`${url}/api/auth/user`);
-    return user;
-};
+const url = 'https:/mern-app-hieu.herokuapp.com';
 
 export const userRegister = (url, user) => {
     return axios
@@ -45,6 +39,40 @@ export const userLogin = async (url, user) => {
         })
         .catch((error) => {
             toast.error('lỗi sai tài khoản hoặc mật khẩu xin nhập lại');
+            return error;
+        });
+};
+export const ApiAddProductToCart = async (url, cartUser) => {
+    return axios
+        .patch(url, cartUser)
+        .then((res) => {
+            if (res.data.success) {
+                console.log(res);
+                toast.success('thêm sản phẩm vào giỏ hàng thành công');
+                return res.data;
+            } else {
+                console.log(res);
+            }
+        })
+        .catch((error) => {
+            console.log(error);
+            return error;
+        });
+};
+export const ApiRemoveProductInCart = async (url, payload) => {
+    console.log(payload);
+    return axios
+        .patch(url, payload)
+        .then((res) => {
+            if (res.data.success) {
+                console.log(res);
+                return res.data;
+            } else {
+                console.log(res);
+            }
+        })
+        .catch((error) => {
+            console.log(error);
             return error;
         });
 };

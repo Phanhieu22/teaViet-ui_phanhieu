@@ -20,7 +20,6 @@
     height: 42px;
     caret-color: rgb(254, 44, 85);
     border-radius: var(--border-radius);
-    padding: 0 0 0 20px;
     border: solid 1.5px transparent;
     position: relative;
     input {
@@ -29,6 +28,7 @@
         line-height: 22px;
         border: none;
         background: transparent;
+        padding: 0 50px 0 20px !important;
         outline: none;
         padding: 0px;
         width: 252px;
@@ -75,7 +75,7 @@
         right: calc(var(--width-btn_search) + 18px);
         top: 50%;
         bottom: 50%;
-        right: 30%;
+        right: 25%;
         cursor: pointer;
         color: rgba(22, 24, 35, 0.34);
     }

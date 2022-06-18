@@ -14,21 +14,9 @@ import * as actions from '~/redux/collections/actions';
 
 import styles from './CollectionsPage.module.scss';
 import { selectorCollections } from '~/redux/collections/selector';
+import formatProductPortfolio from '~/utils/formatProductPortfolio';
 const cx = classnames.bind(styles);
 
-// const data = {
-//     nameItems: 'Trà xanh sencha',
-//     items: [
-//         {
-//             thumbnail:
-//                 'https://product.hstatic.net/200000354189/product/jasmine_matcha_100g_0ce946dbe9ff4e99b1ee141c6131be92.jpg',
-//             nameItem: 'Trà xanh Matcha hương Nhài 100g',
-//             price: 125000,
-//             to: '/detailItem',
-//         }
-
-//     ],
-// };
 const CollectionsPage = (props) => {
     const dispatch = useDispatch();
     const data = useSelector(selectorCollections);
@@ -40,12 +28,17 @@ const CollectionsPage = (props) => {
 
     return (
         <div className={cx('wrapper')}>
-            <Breadcrumb_bg title="Tất cả sản phẩm" level1="Trang chủ" level2="Tất cả các sản phẩm" level3="trà xanh" />
+            <Breadcrumb_bg
+                title={formatProductPortfolio(productPortfolio)}
+                level2="Tất cả các sản phẩm"
+                toLv2="/collections/tat-ca-san-pham"
+                level3={formatProductPortfolio(productPortfolio)}
+            />
             <Container>
                 <Grid container className={cx('filterWrapper')}>
                     <Grid item xs={12} md={3}>
                         {' '}
-                        <h2 className="title">Tất cả sản phẩm</h2>
+                        <h2 className="title">{formatProductPortfolio(productPortfolio)}</h2>
                     </Grid>
                     <Grid item xs={12} md={9}>
                         <div className={cx('filter')}>
@@ -75,7 +68,7 @@ const CollectionsPage = (props) => {
                 <Grid className={cx('items')} spacing={3} container>
                     {data.map((item, index) => (
                         <Grid key={index} item xs={6} sm={4} md={3} lg={3}>
-                            <CardProductItem key={index} item={item} />{' '}
+                            <CardProductItem favorite key={index} item={item} />{' '}
                         </Grid>
                     ))}
                 </Grid>

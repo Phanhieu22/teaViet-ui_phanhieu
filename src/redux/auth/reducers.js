@@ -1,4 +1,12 @@
-import { getUser, getTypeAction, createUser, loginUser, logoutUser } from './action';
+import {
+    getUser,
+    getTypeAction,
+    createUser,
+    loginUser,
+    logoutUser,
+    addProductToCart,
+    removeProductInCart,
+} from './action';
 const INIT_STATE = {
     authLoading: false,
     isAuthenticated: false,
@@ -37,6 +45,29 @@ const Auth = (state = INIT_STATE, action) => {
         // logout
         case getTypeAction(logoutUser.logoutUseSuccess): {
             return { ...state, authLoading: false, isAuthenticated: false, user: null };
+        }
+
+        // add product to cart
+
+        case getTypeAction(addProductToCart.addProductToCartRequest): {
+            return { ...state, authLoading: true };
+        }
+        case getTypeAction(addProductToCart.addProductToCartSuccess): {
+            return { ...state, authLoading: false, user: { ...state.user, cart: payload.cart } };
+        }
+        case getTypeAction(addProductToCart.addProductToCartFailure): {
+            return { ...state, authLoading: false };
+        }
+
+        // remove product in Cart
+        case getTypeAction(removeProductInCart.removeProductInCartRequest): {
+            return { ...state, authLoading: true };
+        }
+        case getTypeAction(removeProductInCart.removeProductInCartSuccess): {
+            return { ...state, authLoading: false, user: { ...state.user, cart: payload.cart } };
+        }
+        case getTypeAction(removeProductInCart.removeProductInCartFailure): {
+            return { ...state, authLoading: false };
         }
         default: {
             return state;

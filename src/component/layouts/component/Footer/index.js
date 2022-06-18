@@ -23,23 +23,23 @@ const configMenuFooter = [
         children: [
             {
                 nameItem: 'Trà xanh matcha',
-                to: 'item',
+                to: '/collections/tra-xanh-matcha',
             },
             {
                 nameItem: 'Trà xanh Sencha',
-                to: 'item',
+                to: '/collections/tra-xanh-sencha',
             },
             {
                 nameItem: 'Trà xanh Komachi',
-                to: 'item',
+                to: '/collections/tra-xanh-komachi',
             },
             {
                 nameItem: 'Trà Houjicha',
-                to: 'item',
+                to: '/collections/tra-xanh-houjicha',
             },
             {
                 nameItem: 'Trà Genmaicha',
-                to: 'item',
+                to: '/collections/tra-xanh-genmaicha',
             },
         ],
     },

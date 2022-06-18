@@ -22,7 +22,8 @@ export default function Home() {
             color: 'black',
             description:
                 'Matcha là một loại bột trà xanh Nhật Bản cao cấp được làm từ những lá trà tốt nhất được trồng trong bóng râm. Matcha rất giàu chất chống oxy hóa, axit amin và các chất dinh dưỡng khác.',
-            to: '/item',
+                to: '/collections/tra-xanh-macha',
+
         },
         {
             id: '2',
@@ -32,7 +33,8 @@ export default function Home() {
             color: 'white',
             description:
                 'Tại Nhật Bản loại trà xanh được sản xuất nhiều nhất lại là Sencha. Có đến 80% sản lượng trà xanh sản xuất tại Nhật Bản là Sencha. Như vậy đủ thấy Sencha có phổ biến như thế nào tại đất nước mặt trời mọc',
-            to: '/item',
+                to: '/collections/tra-xanh-sencha',
+
         },
         {
             id: '3',
@@ -42,7 +44,8 @@ export default function Home() {
             color: 'white',
             description:
                 'Một sự kết hợp hoàn hảo từ trà xanh Sencha và gạo lứt rang, Trà xanh Sencha Genmaicha của Satoen sẽ tỏa ra hương thơm từ gạo lứt rang từ mũi đến miệng bạn sau mỗi ngụm kết hợp với vị tươi mới của trà xanh Sencha đã tạo nên một loại trà uống hàng ngày rất tuyệt vời.',
-            to: '/item',
+                to: '/collections/tra-xanh-genmaicha',
+
         },
         {
             id: '4',
@@ -52,7 +55,8 @@ export default function Home() {
             color: 'white',
             description:
                 'Với hương vị vô cùng độc đáo và mạnh mẽ, Houjicha được làm bằng cách rang trà xanh Sencha ở nhiệt độ cao. Mặc dù Houjicha thuộc họ trà xanh, nhưng quá trình rang sẽ biến lá của nó thành màu nâu đậm. Houjicha có một hương vị rất riêng biệt, với mùi Caramen nhẹ nhàng',
-            to: '/item',
+                to: '/collections/tra-xanh-houjicha',
+
         },
         {
             id: '5',
@@ -62,13 +66,14 @@ export default function Home() {
             color: 'white',
             description:
                 'Trà Komachi do Satoen Việt Nam nghiên cứu và phát triển là một sản phẩm rất tuyệt vời. Nó kết hợp giữa trà xanh Sencha và trà xanh Matcha thượng hạng để tạo nên một màu nước trà xanh đẹp cùng với hương vị đậm đà đặc biệt rất dễ uống, trà Komachi cân bằng hài hòa giữa vị chát của Sencha và vị thanh khiết của Matcha.',
-            to: '/item',
+            to: '/collections/tra-xanh-komachi',
         },
     ];
     return (
         <div>
             <div>
                 <Banner />
+                
             </div>{' '}
             {/* banner end */}
             <div className={cx('collections')}>

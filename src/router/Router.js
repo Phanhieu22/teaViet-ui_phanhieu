@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import DefaultLayout from '~/component/layouts/DefaultLayout';
+import NotFound404 from '~/component/pages/NotFound404';
 import NavigateSetter from '../Navigation';
 import { publicRoute } from './index.js';
 
@@ -29,6 +30,14 @@ const Router = () => (
                         }></Route>
                 );
             })}
+            <Route
+                path="*"
+                element={
+                    <DefaultLayout>
+                        <NotFound404 />
+                    </DefaultLayout>
+                }
+            />
         </Routes>
     </BrowserRouter>
 );

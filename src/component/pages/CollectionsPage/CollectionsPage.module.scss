@@ -5,6 +5,10 @@
     margin: 2em 0;
     padding: 0.5em 0.4em;
     border: 1px var(--primary) solid;
+    .title {
+        padding-right: 1em;
+        font-weight: 500;
+    }
     .filter {
         display: flex;
         align-items: center;

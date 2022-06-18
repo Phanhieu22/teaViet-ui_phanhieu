@@ -1,5 +1,5 @@
 import { createActions, createAction } from 'redux-actions';
-    const getUser = createActions({
+const getUser = createActions({
     getUserRequest: undefined,
     getUserSuccess: (payload) => payload,
     getUserFailure: (error) => error,
@@ -26,8 +26,20 @@ const logoutUser = createActions({
     logoutUseSuccess: undefined,
 });
 
+const addProductToCart = createActions({
+    addProductToCartRequest: (payload) => payload,
+    addProductToCartSuccess: (payload) => payload,
+    addProductToCartFailure: (error) => error,
+});
+
+const removeProductInCart = createActions({
+    removeProductInCartRequest: (payload) => payload,
+    removeProductInCartSuccess: (payload) => payload,
+    removeProductInCartFailure: (error) => error,
+});
+
 const getTypeAction = (reduxActions) => {
     return reduxActions().type;
 };
 
-export { getUser, getTypeAction, createUser, loginUser, logoutUser };
+export { getUser, getTypeAction, createUser, loginUser, logoutUser, addProductToCart, removeProductInCart };

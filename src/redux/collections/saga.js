@@ -5,7 +5,6 @@ import apiConfig from '../../config/authApi';
 
 function* workerPostAProduct(product) {
     const response = yield call(postAProduct, `${apiConfig.apiGateway.server1}/collections`, product);
-    console.log(response);
     if (response.data.success) {
         yield put(actions.postAProduct.postAProductSuccess(response.data));
     } else {
