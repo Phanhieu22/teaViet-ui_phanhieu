@@ -11,10 +11,10 @@ import MenuAdmin from '../layouts/component/Popper/menuAdmin';
 
 
 import classNames from 'classnames/bind';
-import styles from './CardProductItem.module.scss';
 
 
-const cx = classNames.bind(styles);
+
+//const cx = classNames.bind(styles)
 
 function CardProductItem({ item, onClick, className, setting, guide, search, favorite = true, ...passProps }) {
     const props = {
