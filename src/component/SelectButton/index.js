@@ -55,7 +55,7 @@ function SelectButton({
                 <ListItemText primary={title} />
                 {modelDisplay ? <ExpandLess /> : <ExpandMore />}
             </ListItemButton>
-            <Collapse in={modelDisplay} timeout="auto" unmountOnExit>
+            <Collapse onClick={handleDisplay} in={modelDisplay} timeout="auto" unmountOnExit>
                 {children}
             </Collapse>
         </List>

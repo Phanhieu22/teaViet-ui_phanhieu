@@ -33,7 +33,7 @@ function NavMobile({ open, handleClose, handleOpen }) {
         setX(!x);
     };
     const list = () => (
-        <Box className={cx('swapper')} sx={{ width: 250 }} role="presentation">
+        <Box className={cx('swapper')} sx=  {{ width: 250 }} role="presentation">
             <img
                 className={cx('logo')}
                 src="https://theme.hstatic.net/200000354189/1000743772/14/en_logo.png?v=191"
@@ -42,7 +42,7 @@ function NavMobile({ open, handleClose, handleOpen }) {
             <List
                 sx={{
                     width: '100%',
-                    fontSize: '1.5em',
+                    fontSize: '2em',
                 }}>
                 {configNavBar.map((navItem, index) => {
                     let isParent = !!navItem.children;

@@ -1,6 +1,6 @@
 const dev = {
     apiGateway: {
-        server1: 'http://localhost:5000/api',
+        server1: 'https://mern-app-hieu.herokuapp.com/api',
     },
 };
 

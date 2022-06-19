@@ -48,18 +48,6 @@ function Product({ setting = false }) {
     const handleSetItemsActive = (items) => {
         setProductPortfolioActive(items.productPortfolio);
     };
-
-    const setCol = (width) => {
-        if (width > 1200) {
-            return 3;
-        } else {
-        }
-        if (width > 600) {
-            return 4;
-        } else {
-            return 6;
-        }
-    };
     return (
         <div className={cx('wrapper')}>
             <Container className={cx('wrapper')} maxWidth="lg">
