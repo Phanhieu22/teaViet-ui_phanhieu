@@ -10,7 +10,15 @@ import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles({
     tooltip: {
-        fontSize: 18,
+        fontSize: '10em !important',
+    },
+
+    largeIcon: {
+        width: 60,
+        height: 60,
+        '& svg': {
+            fontSize: 24,
+        },
     },
 });
 export default function ConnectSpeedDial() {
@@ -53,15 +61,15 @@ export default function ConnectSpeedDial() {
         <Box sx={{ height: 320, transform: 'translateZ(0px)', flexGrow: 1, fontSize: '1.5rem !important' }}>
             <SpeedDial
                 ariaLabel="SpeedDial basic example"
-                sx={{ position: 'absolute', bottom: 16, right: 16, overflow: 'hidden' }}
-                icon={<SpeedDialIcon />}>
+                sx={{ position: 'absolute', bottom: 16, right: 16, overflow: 'hidden', fontSize: '2.5rem !important' }}
+                icon={<SpeedDialIcon className={classes.largeIcon} />}>
                 {actions.map((action) => (
                     <SpeedDialAction
                         sx={{ width: '50px', height: '50px', fontSize: '2rem' }}
                         key={action.name}
                         icon={action.icon}
                         tooltipTitle={action.name}
-                        TooltipClasses={classes}
+                        // TooltipClasses={classes.tooltip}
                     />
                 ))}
             </SpeedDial>

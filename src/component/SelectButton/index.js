@@ -52,7 +52,7 @@ function SelectButton({
     return (
         <List className={cx('wrapper', outline, rounded)} component="nav" aria-labelledby="nested-list-subheader">
             <ListItemButton onClick={handleDisplay}>
-                <ListItemText primary={title} />
+                <ListItemText primaryTypographyProps={{ fontSize: '1.2em' }} primary={title} />
                 {modelDisplay ? <ExpandLess /> : <ExpandMore />}
             </ListItemButton>
             <Collapse onClick={handleDisplay} in={modelDisplay} timeout="auto" unmountOnExit>
