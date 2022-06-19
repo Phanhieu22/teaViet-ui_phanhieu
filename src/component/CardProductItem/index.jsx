@@ -1,14 +1,19 @@
 import { faGear, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Tippy from '@tippyjs/react';
-import classNames from 'classnames/bind';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Button from '~/component/Button';
 import { SearchIcon } from '~/component/icons';
 import { getAllCollections } from '~/redux/collections/actions';
 import MenuAdmin from '../layouts/component/Popper/menuAdmin';
+
+
+
+import classNames from 'classnames/bind';
 import styles from './CardProductItem.module.scss';
+
+
 const cx = classNames.bind(styles);
 
 function CardProductItem({ item, onClick, className, setting, guide, search, favorite = true, ...passProps }) {
