@@ -22,13 +22,16 @@ function NavBar() {
     const handleClose = () => {
         setOpen(false);
     };
-  
+    const handleOpen = () => {
+        setOpen(true);
+    };
+
     return (
         <nav className={cx('wrapper')}>
             <div className={cx('container')}>
                 <div className={cx('navigationMobile')}>
                     <FontAwesomeIcon className={cx('iconBars')} icon={faBars} onClick={handleClickOpen} />
-                    <NavMobile open={open} handleClose={handleClose}/>
+                    <NavMobile open={open} handleClose={handleClose} handleOpen={handleOpen} />
                 </div>
                 <div className="logo">
                     <Button className={cx('logo')} to="/">

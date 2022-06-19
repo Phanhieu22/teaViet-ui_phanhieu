@@ -50,14 +50,7 @@ function SelectButton({
         }
     };
     return (
-        <List
-            
-            className={cx('wrapper', outline, rounded)}
-            sx={{
-                width: '100%',
-            }}
-            component="nav"
-            aria-labelledby="nested-list-subheader">
+        <List className={cx('wrapper', outline, rounded)} component="nav" aria-labelledby="nested-list-subheader">
             <ListItemButton onClick={handleDisplay}>
                 <ListItemText primary={title} />
                 {modelDisplay ? <ExpandLess /> : <ExpandMore />}

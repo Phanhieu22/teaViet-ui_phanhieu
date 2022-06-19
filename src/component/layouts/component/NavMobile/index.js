@@ -1,32 +1,49 @@
-import { Dialog, DialogContent } from '@mui/material';
+import {
+    Box,
+    Collapse,
+    Dialog,
+    DialogContent,
+    Divider,
+    List,
+    ListItem,
+    ListItemButton,
+    ListItemIcon,
+    ListItemText,
+    SwipeableDrawer,
+} from '@mui/material';
 import Slide from '@mui/material/Slide';
 import classnames from 'classnames/bind';
-import { forwardRef } from 'react';
+import { forwardRef, useState } from 'react';
 import Button from '~/component/Button';
 import SelectButton from '~/component/SelectButton';
 import { configNavBar } from '~/router';
+import InboxIcon from '@mui/icons-material/MoveToInbox';
 import styles from './NavMobile.module.scss';
+import { ExpandLess, ExpandMore, StarBorder } from '@mui/icons-material';
+import { Link } from 'react-router-dom';
 const cx = classnames.bind(styles);
 
 const Transition = forwardRef(function Transition(props, ref) {
     return <Slide direction="right" ref={ref} {...props} />;
 });
 
-function NavMobile({ open, handleClose }) {
-    return (
-        <Dialog
-            open={open}
-            TransitionComponent={Transition}
-            keepMounted
-            onClose={handleClose}
-            className={cx('container')}
-            aria-describedby="alert-dialog-slide-description">
+function NavMobile({ open, handleClose, handleOpen }) {
+    const [x, setX] = useState(false);
+    const handleClick = () => {
+        setX(!x);
+    };
+    const list = () => (
+        <Box className={cx('swapper')} sx={{ width: 250 }} role="presentation">
             <img
                 className={cx('logo')}
                 src="https://theme.hstatic.net/200000354189/1000743772/14/en_logo.png?v=191"
                 alt="logo"
             />
-            <DialogContent>
+            <List
+                sx={{
+                    width: '100%',
+                    fontSize: '1.5em',
+                }}>
                 {configNavBar.map((navItem, index) => {
                     let isParent = !!navItem.children;
                     if (isParent) {
@@ -36,9 +53,12 @@ function NavMobile({ open, handleClose }) {
                                     {navItem.children.data.map((nav, index) => {
                                         return (
                                             <span key={nav.id}>
-                                                <Button className={cx('customBtn')} to={nav.to}>
-                                                    {nav.title}
-                                                </Button>
+                                                <Link to={nav.to}>
+                                                    <ListItemButton onClick={handleClose} sx={{ pl: 3 }}>
+                                                        <ListItemText primary={nav.title} />{' '}
+                                                        <ListItemIcon></ListItemIcon>
+                                                    </ListItemButton>
+                                                </Link>
                                             </span>
                                         );
                                     })}
@@ -47,14 +67,27 @@ function NavMobile({ open, handleClose }) {
                         );
                     } else {
                         return (
-                            <Button className={cx('customBtn')} to={navItem.to} key={navItem.title}>
-                                {navItem.title}
-                            </Button>
+                            <Link to={navItem.to}>
+                                <ListItemButton onClick={handleClose} sx={{ pl: 2 }}>
+                                    <ListItemText primary={navItem.title} /> <ListItemIcon></ListItemIcon>
+                                </ListItemButton>
+                            </Link>
+
+                            // <Button className={cx('customBtn')} to={navItem.to} key={navItem.title}>
+                            //     {navItem.title}
+                            // </Button>
                         );
                     }
                 })}
-            </DialogContent>
-        </Dialog>
+            </List>
+        </Box>
+    );
+    return (
+        <>
+            <SwipeableDrawer anchor={'left'} open={open} onClose={handleClose} onOpen={handleOpen}>
+                {list()}
+            </SwipeableDrawer>
+        </>
     );
 }
 
