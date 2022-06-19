@@ -8,13 +8,10 @@ import { SearchIcon } from '~/component/icons';
 import { getAllCollections } from '~/redux/collections/actions';
 import MenuAdmin from '../layouts/component/Popper/menuAdmin';
 
+import classnames from 'classnames/bind';
+import styles from './CardProductItem.module.scss';
 
-
-import classNames from 'classnames/bind';
-
-
-
-//const cx = classNames.bind(styles)
+const cx = classnames.bind(styles);
 
 function CardProductItem({ item, onClick, className, setting, guide, search, favorite = true, ...passProps }) {
     const props = {
