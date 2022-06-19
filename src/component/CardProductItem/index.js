@@ -9,7 +9,7 @@ import { getAllCollections } from '~/redux/collections/actions';
 import MenuAdmin from '../layouts/component/Popper/menuAdmin';
 
 import classnames from 'classnames/bind';
-import styles from './CardProductItem.module.scss';
+import styles from './productItem.module.scss';
 
 const cx = classnames.bind(styles);
 
