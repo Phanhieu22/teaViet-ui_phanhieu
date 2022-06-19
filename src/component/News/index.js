@@ -2,7 +2,6 @@ import { Container } from '@mui/material';
 import classnames from 'classnames/bind';
 import { SwiperSlide } from 'swiper/react';
 import CardNews from '../CardNews';
-import CardProductItem from '../CardProductItem';
 import ShowSwiper from '../ShowSwiper';
 import styles from './New.module.scss';
 const cx = classnames.bind(styles);

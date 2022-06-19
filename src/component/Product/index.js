@@ -5,7 +5,7 @@ import classNames from 'classnames/bind';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as actions from '~/redux/collections/actions';
-import { selectorCollections, selectorStateCollections } from '~/redux/collections/selector';
+import { selectorCollections } from '~/redux/collections/selector';
 import Button from '../Button';
 import CardProductItem from '../CardProductItem';
 import SelectButton from '../SelectButton';
