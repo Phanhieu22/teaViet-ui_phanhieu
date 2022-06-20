@@ -39,7 +39,7 @@ function CardProductItem({ item, onClick, className, setting, guide, search, fav
                         </Button>
                     ) : (
                         <span className={cx('price')}>
-                            {item.price}
+                            {item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
                             <span className={cx('currency')}>đ</span>
                         </span>
                     )}

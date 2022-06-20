@@ -7,6 +7,7 @@ import SpeedDialAction from '@mui/material/SpeedDialAction';
 import SpeedDialIcon from '@mui/material/SpeedDialIcon';
 import Button from '~/component/Button';
 import { makeStyles } from '@mui/styles';
+import { createTheme } from '@mui/material';
 
 const useStyles = makeStyles({
     tooltip: {
@@ -23,6 +24,7 @@ const useStyles = makeStyles({
 });
 export default function ConnectSpeedDial() {
     const classes = useStyles();
+
     const actions = [
         {
             icon: (
@@ -59,13 +61,9 @@ export default function ConnectSpeedDial() {
     ];
     return (
         <Box sx={{ height: 320, transform: 'translateZ(0px)', flexGrow: 1, fontSize: '1.5rem !important' }}>
-            <SpeedDial
-                ariaLabel="SpeedDial basic example"
-                sx={{ position: 'absolute', bottom: 16, right: 16, overflow: 'hidden', fontSize: '2.5rem !important' }}
-                icon={<SpeedDialIcon className={classes.largeIcon} />}>
+            <SpeedDial ariaLabel="SpeedDial basic example" icon={<SpeedDialIcon className={classes.largeIcon} />}>
                 {actions.map((action) => (
                     <SpeedDialAction
-                        sx={{ width: '50px', height: '50px', fontSize: '2rem' }}
                         key={action.name}
                         icon={action.icon}
                         tooltipTitle={action.name}

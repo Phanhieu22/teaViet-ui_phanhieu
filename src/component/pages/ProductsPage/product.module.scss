@@ -24,6 +24,7 @@
             width: 69px;
             height: 22px;
             position: absolute;
+            margin-left: -34px;
 
             left: 47%;
             bottom: -55%;
@@ -78,6 +79,7 @@
     .status {
         display: flex;
         align-items: center;
+        flex-wrap: nowrap;
         .split {
             display: block;
             background-color: #333;
@@ -152,6 +154,9 @@
     height: 2.5em !important;
 }
 .customBtn2 {
+    font-size: 1.2em;
+    width: 35px;
+    height: 35px;
 }
 .mt-4 {
     margin-top: 24px;
@@ -169,4 +174,9 @@
 }
 .active {
     background-color: var(--primary) !important;
+}
+@media (max-width: 397px) {
+    .status {
+        font-size: 0.8em;
+    }
 }

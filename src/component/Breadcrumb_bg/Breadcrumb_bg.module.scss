@@ -16,14 +16,20 @@
         justify-content: center;
         flex-direction: column;
         align-items: center;
+
         .iconHome {
             color: var(--sencha-green) !important;
             transform: translateY(-5px) !important;
-            
         }
         h3 {
             font-size: 1.8em;
             font-weight: 600;
+        }
+        div {
+            text-align: center;
+            ol li {
+                margin: auto;
+            }
         }
     }
 }

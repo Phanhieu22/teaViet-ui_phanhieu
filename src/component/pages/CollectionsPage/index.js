@@ -1,4 +1,4 @@
-import { Container, Grid } from '@mui/material';
+import { Box, Container, Grid } from '@mui/material';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
@@ -48,16 +48,48 @@ const CollectionsPage = (props) => {
                                 aria-labelledby="demo-radio-buttons-group-label"
                                 defaultValue="female"
                                 name="radio-buttons-group">
-                                <FormControlLabel value="female" control={<Radio />} label="A đến Z" />
-                                <FormControlLabel value="male" control={<Radio />} label="Z đến A" />
+                                <FormControlLabel
+                                    value="female"
+                                    control={<Radio />}
+                                    label={
+                                        <Box component="div" fontSize={15}>
+                                            A đến Z
+                                        </Box>
+                                    }
+                                />
+                                <FormControlLabel
+                                    value="male"
+                                    control={<Radio />}
+                                    label={
+                                        <Box component="div" fontSize={15}>
+                                            Z đến A
+                                        </Box>
+                                    }
+                                />
                             </RadioGroup>
                             <RadioGroup
                                 row
                                 aria-labelledby="demo-radio-buttons-group-label"
                                 defaultValue="female"
                                 name="radio-buttons-group">
-                                <FormControlLabel value="female" control={<Radio />} label="Giá tăng dần" />
-                                <FormControlLabel value="male" control={<Radio />} label="Giá giảm dần" />
+                                <FormControlLabel
+                                    value="female"
+                                    control={<Radio />}
+                                    label={
+                                        <Box component="div" fontSize={15}>
+                                            Giá tăng dần
+                                        </Box>
+                                    }
+                                />
+                                <FormControlLabel
+                                    value="male"
+                                    control={<Radio />}
+                                    label={
+                                        <Box component="div" fontSize={15}>
+                                            Giá giảm dần
+                                        </Box>
+                                    }
+                                />
                             </RadioGroup>
                         </div>
                     </Grid>

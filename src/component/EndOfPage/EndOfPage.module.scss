@@ -17,16 +17,16 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        &::after {
-            content: '';
-            background-image: url(//theme.hstatic.net/200000354189/1000743772/14/bg_title.png?v=191);
-            background-repeat: no-repeat;
-            width: 69px;
-            height: 22px;
-            position: absolute;
+    }
+    span {
+        background-image: url(//theme.hstatic.net/200000354189/1000743772/14/bg_title.png?v=191);
+        background-repeat: no-repeat;
+        width: 69px;
+        height: 22px;
+        position: absolute;
 
-            left: 47%;
-            bottom: -55%;
-        }
+        left: 50%;
+        margin-left: -35px;
+        bottom: -55%;
     }
 }

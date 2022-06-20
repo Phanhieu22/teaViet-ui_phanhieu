@@ -19,7 +19,8 @@ function SearchFooter() {
     const handelChangeInput = (e) => {
         setSearchValue(e.target.value);
     };
-    const clearInput = () => {
+    const clearInput = (e) => {
+        e.preventDefault();
         setSearchValue('');
         inputRef.current.focus();
     };

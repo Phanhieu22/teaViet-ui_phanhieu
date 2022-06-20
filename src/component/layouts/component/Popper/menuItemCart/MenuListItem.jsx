@@ -32,11 +32,14 @@ const MenuListItem = forwardRef(({ children, items, onChange }, ref) => {
                                         </div>
                                         <div>
                                             <h5>
-                                                {items.children.data?.reduce(
-                                                    (total, currentValue) =>
-                                                        total + currentValue.price * currentValue.quality,
-                                                    0
-                                                )}
+                                                {items.children.data
+                                                    ?.reduce(
+                                                        (total, currentValue) =>
+                                                            total + currentValue.price * currentValue.quality,
+                                                        0
+                                                    )
+                                                    .toString()
+                                                    .replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
                                                 đ
                                             </h5>
                                         </div>

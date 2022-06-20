@@ -7,6 +7,7 @@ function EndOfPage({ title }) {
     return (
         <div className={cx('title')}>
             <h2></h2>
+            <span></span>
         </div>
     );
 }

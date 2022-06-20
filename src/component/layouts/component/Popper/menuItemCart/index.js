@@ -29,7 +29,7 @@ function MenuItemCart({ data, onClick = () => {} }) {
                     <div className={cx('content')}>
                         <h3 className={cx('name')}>{data.nameItem}</h3>
                         <h4 className={cx('price')}>
-                            {data.price} * {data.quality}
+                            {`${data.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}đ * ${data.quality} `}
                         </h4>
                     </div>
                     <div className={cx('cancel')}>

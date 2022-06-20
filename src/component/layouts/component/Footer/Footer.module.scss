@@ -96,7 +96,7 @@
     }
     .contentMobile {
         display: block;
-        padding-top: 1em !important ;
+        padding-top: 0em !important ;
         li {
             padding-left: 1em;
         }
@@ -105,5 +105,13 @@
 @media screen and (max-width: 899px) {
     .menuFooterDesktop {
         margin-top: 0em !important;
+    }
+    .logo {
+        margin: 0 auto;
+        display: block;
+        width: 50% !important;
+    }
+    .contentDesktop {
+        display: none;
     }
 }

@@ -51,6 +51,7 @@ const ProductsPage = () => {
     useEffect(() => {
         dispatch(getOneProduct.request(slug));
         window.scrollTo(0, 0);
+        setAmount(1);
     }, [slug]);
 
     const handleChange = (event, newValue) => {
@@ -102,7 +103,6 @@ const ProductsPage = () => {
                 toLv2={navLink}
                 level3={introProduct.nameProduct}
             />
-            {console.log(introProduct)}
             <Container>
                 <Grid container>
                     <Grid item xs={12} md={6}>
@@ -122,7 +122,8 @@ const ProductsPage = () => {
                             </span>
                         </div>
                         <div className={cx('price')}>
-                            <h3>{introProduct?.price}</h3> <span className={cx('currency')}>đ</span>
+                            <h3>{introProduct?.price?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}</h3>{' '}
+                            <span className={cx('currency')}>đ</span>
                         </div>
                         <div className={cx('intro')}>
                             <p>
