@@ -79,22 +79,12 @@ const configNavBar = [
                 {
                     id: '5',
                     to: '/knowledge',
-                    title: 'kiến thưc pha chế',
+                    title: 'kiến thưc pha trà',
                 },
                 {
                     id: '6',
                     to: '/knowledge',
                     title: 'câu hỏi thường gặp',
-                },
-                {
-                    id: '7',
-                    to: '/product2',
-                    title: 'quy trình sản xuất chè macha',
-                },
-                {
-                    id: '8',
-                    to: '/product2',
-                    title: 'quy trình sản xuất chè sencha',
                 },
             ],
         },
